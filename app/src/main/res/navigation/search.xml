@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search"
+    app:startDestination="@id/searchMovieFragment">
+
+    <fragment
+        android:id="@+id/searchMovieFragment"
+        android:name="com.rodrigoads.mymovies.presenter.search.SearchMovieFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search_movie" />
+</navigation>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/popular"
+        android:title="@string/popular"
+        android:icon="@drawable/ic_baseline_local_movies_24"/>
+
+    <item
+        android:id="@+id/search"
+        android:title="@string/search"
+        android:icon="@drawable/ic_baseline_search_24"/>
+
+    <item
+        android:id="@+id/watch_later"
+        android:title="@string/watch_later"
+        android:icon="@drawable/ic_baseline_watch_later_24"/>
+
+</menu>

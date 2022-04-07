@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- MyMovies Colors -->
+    <color name="primary_blue">#3E9FF7</color>
+    <color name="secondary_blue">#1C1F26</color>
+    <color name="primary_purple">#9E78FE</color>
+    <color name="primary_white">#EAEEF6</color>
+
 </resources>

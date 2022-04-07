@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/popular">
+
+    <include app:graph="@navigation/popular" />
+    <include app:graph="@navigation/search" />
+    <include app:graph="@navigation/watch_later" />
+</navigation>
