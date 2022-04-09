@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_flipper_popular_movies"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary_white">
+
+    <include
+        android:id="@+id/include_view_popular_movies_loading_state"
+        layout="@layout/include_view_popular_movies_loading_state"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/popular_movies_recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/popular_movie_item_layout"/>
+
+    <include
+        android:id="@+id/include_view_popular_movies_error_state"
+        layout="@layout/include_view_popular_movies_error_state"/>
+
+</ViewFlipper>

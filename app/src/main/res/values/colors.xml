@@ -13,5 +13,7 @@
     <color name="secondary_blue">#1C1F26</color>
     <color name="primary_purple">#9E78FE</color>
     <color name="primary_white">#EAEEF6</color>
+    <color name="primary_gray">#DDDDDD</color>
+    <color name="secondary_gray">#B5B5B5</color>
 
 </resources>

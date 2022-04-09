@@ -26,7 +26,9 @@ android {
         buildConfigField("String", "API_KEY", apikeyProperties['API_KEY'])
         buildConfigField("String", "API_TOKEN", apikeyProperties['API_TOKEN'])
         buildConfigField("String", "BASE_URL", '"https://api.themoviedb.org/3/"')
+        buildConfigField("String", "GET_IMAGE_URL", '"https://image.tmdb.org/t/p/original"')
         buildConfigField("String", "LANGUAGE", '"pt-BR"')
+        buildConfigField("String", "REGION", '"BR"')
     }
 
     buildTypes {
@@ -58,6 +60,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //Navigation
+    def nav_version = "2.4.1"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
@@ -66,13 +69,43 @@ dependencies {
     kapt ("com.google.dagger:hilt-android-compiler:$hilt_version")
 
     //Retrofit
+    def retrofit_version = "2.9.0"
     implementation ("com.squareup.retrofit2:retrofit:$retrofit_version")
 
     //Gson
     implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")
 
     //OkHttp
-    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.3"))
+    def okttp_version = "4.9.3"
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:$okttp_version"))
     implementation("com.squareup.okhttp3:okhttp")
     implementation("com.squareup.okhttp3:logging-interceptor")
+
+    //Coroutines
+    def coroutines_version = "1.5.2"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version")
+
+    //ViewModel and LiveData
+    def lifecycle_version = "2.4.1"
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+
+    //Fragment
+    def fragment_version = "1.4.1"
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
+
+    //Paging
+    def paging_version = "3.1.1"
+    implementation("androidx.paging:paging-runtime:$paging_version")
+
+    //Glide
+    def glide_version = "4.13.0"
+    implementation("com.github.bumptech.glide:glide:$glide_version")
+    annotationProcessor("com.github.bumptech.glide:compiler:$glide_version")
+
+    //Shimmer
+    def shimmer_version = "0.5.0"
+    implementation("com.facebook.shimmer:shimmer:$shimmer_version")
+
 }

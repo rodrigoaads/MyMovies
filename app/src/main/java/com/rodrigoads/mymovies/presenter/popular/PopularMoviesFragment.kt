@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.rodrigoads.mymovies.R
 import com.rodrigoads.mymovies.databinding.FragmentPopularMoviesBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PopularMoviesFragment : Fragment() {
     private lateinit var popularMoviesBinding : FragmentPopularMoviesBinding
     override fun onCreateView(
@@ -15,6 +18,6 @@ class PopularMoviesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         popularMoviesBinding = FragmentPopularMoviesBinding.inflate(layoutInflater, container, false)
-        return inflater.inflate(R.layout.fragment_popular_movies, container, false)
+        return popularMoviesBinding.root
     }
 }

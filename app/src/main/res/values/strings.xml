@@ -5,4 +5,7 @@
     <string name="popular">Popular</string>
     <string name="search">Pesquisar</string>
     <string name="watch_later">Assistir mais tarde</string>
+    <string name="there_was_an_error_retrieving_the_data">Ocorreu um erro ao recuperar os dados :(</string>
+    <string name="try_again">Tentar Novamente</string>
+    <string name="popular_movies">Filmes Populares</string>
 </resources>

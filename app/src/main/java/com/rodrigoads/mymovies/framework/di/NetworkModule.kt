@@ -55,7 +55,8 @@ object NetworkModule{
         return AuthorizationInterceptor(
             apiKey = BuildConfig.API_KEY,
             apiToken = BuildConfig.API_TOKEN,
-            responseLanguage = BuildConfig.LANGUAGE
+            responseLanguage = BuildConfig.LANGUAGE,
+            responseRegion = BuildConfig.REGION
         )
     }
 

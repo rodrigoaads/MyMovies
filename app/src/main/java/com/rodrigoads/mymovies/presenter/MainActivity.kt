@@ -10,7 +10,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.rodrigoads.mymovies.R
 import com.rodrigoads.mymovies.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var mainActivityBinding: ActivityMainBinding
     private lateinit var navController: NavController
