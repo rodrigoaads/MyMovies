@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
@@ -46,6 +47,7 @@ class PopularMoviesFragment : Fragment() {
         })
     }
 
+
     private fun setFirstPopularMovie(firstPopularMovie: PopularMoviesUiModel?) {
         firstPopularMovie?.let {
             popularMoviesBinding.includeViewFirstPopularMovie.textViewFirstMovieTitle.text = it.title
@@ -55,6 +57,10 @@ class PopularMoviesFragment : Fragment() {
                 .load(BuildConfig.GET_IMAGE_URL + it.poster_path)
                 .fallback(R.drawable.ic_baseline_broken_image_24)
                 .into(popularMoviesBinding.includeViewFirstPopularMovie.imageViewFirstPopularMoviePoster)
+        }
+
+        popularMoviesBinding.includeViewFirstPopularMovie.firstPopularMovieView.setOnClickListener {
+            Toast.makeText(context, firstPopularMovie?.title, Toast.LENGTH_SHORT).show()
         }
     }
 
