@@ -43,10 +43,6 @@ class PopularMoviesListFragment : Fragment() {
                 popularMoviesAdapter.submitData(it)
             }
         }
-
-        popularMoviesViewModel.firstPopularMovie.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(context, "${it.title}", Toast.LENGTH_SHORT).show()
-        })
     }
 
     private fun initPopularAdapter() {

@@ -7,15 +7,71 @@
     android:background="@color/primary_white"
     tools:context=".presenter.popular.PopularMoviesFragment">
 
+    <ImageView
+        android:id="@+id/image_view_back_bg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        android:src="@drawable/back_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/text_view_first_popupar_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:text="#1"
+        android:textColor="@color/primary_purple"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/view_flipper_first_popular_movie"
+        app:layout_constraintStart_toStartOf="@+id/view_flipper_first_popular_movie" />
+
+    <ViewFlipper
+        android:id="@+id/view_flipper_first_popular_movie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_popular_movies"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/image_view_back_bg">
+
+        <ProgressBar
+            android:id="@+id/progress_bar_loading_first_popular_movie_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <include
+            android:id="@+id/include_view_first_popular_movie"
+            layout="@layout/include_view_first_popular_movie" />
+
+
+        <TextView
+            android:id="@+id/text_view_error_first_popular_movie_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:text="@string/something_didnt_go_right"
+            android:textColor="@color/primary_purple"
+            android:textSize="24sp" />
+
+    </ViewFlipper>
+
+    <TextView
+        android:id="@+id/text_view_popular_movies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/nunito_sans_bold"
         android:text="@string/popular_movies"
-        android:textSize="16sp"
         android:textColor="@color/primary_purple"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/fragment_list_popular_movies"
         app:layout_constraintStart_toStartOf="@+id/fragment_list_popular_movies" />
 

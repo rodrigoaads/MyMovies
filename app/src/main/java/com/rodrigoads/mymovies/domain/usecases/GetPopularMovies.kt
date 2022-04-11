@@ -1,8 +1,10 @@
 package com.rodrigoads.mymovies.domain.usecases
 
+import androidx.lifecycle.LiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.rodrigoads.mymovies.data.network.base.ResultStatus
 import com.rodrigoads.mymovies.data.repositories.PopularMoviesRepository
 import com.rodrigoads.mymovies.domain.model.PopularMovies
 import kotlinx.coroutines.flow.Flow
@@ -13,7 +15,7 @@ class GetPopularMovies @Inject constructor(
 ) : GetPopularMoviesUseCase {
     override fun invoke(
         pagingConfig: PagingConfig,
-        firstItem: (PopularMovies?) -> Unit
+        firstItem: (LiveData<ResultStatus<PopularMovies?>>) -> Unit
     ): Flow<PagingData<PopularMovies>> {
         return Pager(config = pagingConfig) {
             popularMoviesRepository.getRemotePopularMovies(firstItem)
@@ -25,6 +27,6 @@ class GetPopularMovies @Inject constructor(
 interface GetPopularMoviesUseCase {
     operator fun invoke(
         pagingConfig: PagingConfig,
-        firstItem: (PopularMovies?) -> Unit
+        firstItem: (LiveData<ResultStatus<PopularMovies?>>) -> Unit
     ): Flow<PagingData<PopularMovies>>
 }

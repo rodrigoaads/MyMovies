@@ -6,18 +6,61 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
+import com.rodrigoads.mymovies.BuildConfig
 import com.rodrigoads.mymovies.R
 import com.rodrigoads.mymovies.databinding.FragmentPopularMoviesBinding
+import com.rodrigoads.mymovies.presenter.base.ResultUiState
+import com.rodrigoads.mymovies.presenter.popular.model.PopularMoviesUiModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.hypot
 
 @AndroidEntryPoint
 class PopularMoviesFragment : Fragment() {
     private lateinit var popularMoviesBinding : FragmentPopularMoviesBinding
+    private val popularMoviesViewModel: PopularMoviesViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         popularMoviesBinding = FragmentPopularMoviesBinding.inflate(layoutInflater, container, false)
         return popularMoviesBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        popularMoviesViewModel.firstPopularMovie.observe(viewLifecycleOwner, Observer {
+            popularMoviesBinding.viewFlipperFirstPopularMovie.displayedChild = when(it){
+                is ResultUiState.Loading -> {
+                    FLIPPER_CHILD_FIRST_POPULAR_MOVIE_LOADING_STATE
+                }
+                is ResultUiState.Success -> {
+                    setFirstPopularMovie(it.data)
+                    FLIPPER_CHILD_FIRST_POPULAR_MOVIE
+                }
+                is ResultUiState.Error -> {
+                    FLIPPER_CHILD_FIRST_POPULAR_MOVIE_ERROR_STATE
+                }
+            }
+        })
+    }
+
+    private fun setFirstPopularMovie(firstPopularMovie: PopularMoviesUiModel?) {
+        firstPopularMovie?.let {
+            popularMoviesBinding.includeViewFirstPopularMovie.textViewFirstMovieTitle.text = it.title
+            popularMoviesBinding.includeViewFirstPopularMovie.textViewMovieDescription.text = it.overview
+
+            Glide.with(this)
+                .load(BuildConfig.GET_IMAGE_URL + it.poster_path)
+                .fallback(R.drawable.ic_baseline_broken_image_24)
+                .into(popularMoviesBinding.includeViewFirstPopularMovie.imageViewFirstPopularMoviePoster)
+        }
+    }
+
+    companion object {
+        const val FLIPPER_CHILD_FIRST_POPULAR_MOVIE_LOADING_STATE = 0
+        const val FLIPPER_CHILD_FIRST_POPULAR_MOVIE = 1
+        const val FLIPPER_CHILD_FIRST_POPULAR_MOVIE_ERROR_STATE = 2
     }
 }

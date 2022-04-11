@@ -15,5 +15,6 @@
     <color name="primary_white">#EAEEF6</color>
     <color name="primary_gray">#DDDDDD</color>
     <color name="secondary_gray">#B5B5B5</color>
+    <color name="text_gray">#A7A7A7</color>
 
 </resources>

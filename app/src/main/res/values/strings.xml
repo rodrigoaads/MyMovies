@@ -8,4 +8,7 @@
     <string name="there_was_an_error_retrieving_the_data">Ocorreu um erro ao recuperar os dados :(</string>
     <string name="try_again">Tentar Novamente</string>
     <string name="popular_movies">Filmes Populares</string>
+    <string name="first_movie_title">Movie Title</string>
+    <string name="first_popular_movie_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula lobortis enim, ut laoreet magna scelerisque eget. Fusce eu ipsum orci. Integer eget dapibus nisl. Vivamus tristique libero sit amet orci fringilla, vitae lobortis enim interdum. Aenean dictum felis ac ipsum faucibus, lobortis tempus eros consequat. Donec ac ante in nisi dictum venenatis. Nullam id congue ante. Morbi in feugiat lectus. Proin pharetra lacinia tincidunt. Quisque sagittis fringilla odio at congue. Morbi vitae blandit velit. Suspendisse nulla nunc, maximus ac elit ultrices, bibendum laoreet metus.</string>
+    <string name="something_didnt_go_right">Algo não ocorreu bem :(</string>
 </resources>

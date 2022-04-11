@@ -23,6 +23,7 @@ fun PopularMovies.toPopularMoviesUiModel() : PopularMoviesUiModel{
     return PopularMoviesUiModel(
         poster_path = this.poster_path,
         title = this.title,
-        id = this.id
+        id = this.id,
+        overview = this.overview
     )
 }
