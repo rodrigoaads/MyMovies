@@ -28,12 +28,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:ellipsize="end"
             android:fontFamily="@font/nunito_sans_bold"
+            android:maxEms="8"
             android:text="@string/first_movie_title"
+            android:textAlignment="center"
             android:textColor="@color/primary_purple"
             app:layout_constraintEnd_toEndOf="parent"
-            android:maxEms="10"
-            android:ellipsize="end"
             app:layout_constraintStart_toEndOf="@+id/image_view_first_popular_movie_poster"
             app:layout_constraintTop_toTopOf="parent" />
 

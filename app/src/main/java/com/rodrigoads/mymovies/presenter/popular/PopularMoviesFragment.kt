@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.rodrigoads.mymovies.BuildConfig
 import com.rodrigoads.mymovies.R
 import com.rodrigoads.mymovies.databinding.FragmentPopularMoviesBinding
 import com.rodrigoads.mymovies.presenter.base.ResultUiState
+import com.rodrigoads.mymovies.presenter.details.MovieDetailsFragment
 import com.rodrigoads.mymovies.presenter.popular.model.PopularMoviesUiModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.hypot
@@ -49,18 +51,21 @@ class PopularMoviesFragment : Fragment() {
 
 
     private fun setFirstPopularMovie(firstPopularMovie: PopularMoviesUiModel?) {
+        val movieId = firstPopularMovie?.id ?: 0
         firstPopularMovie?.let {
             popularMoviesBinding.includeViewFirstPopularMovie.textViewFirstMovieTitle.text = it.title
             popularMoviesBinding.includeViewFirstPopularMovie.textViewMovieDescription.text = it.overview
-
-            Glide.with(this)
-                .load(BuildConfig.GET_IMAGE_URL + it.poster_path)
-                .fallback(R.drawable.ic_baseline_broken_image_24)
-                .into(popularMoviesBinding.includeViewFirstPopularMovie.imageViewFirstPopularMoviePoster)
         }
 
+        Glide.with(this)
+            .load(BuildConfig.GET_IMAGE_URL + firstPopularMovie?.poster_path)
+            .fallback(R.drawable.ic_baseline_broken_image_24)
+            .into(popularMoviesBinding.includeViewFirstPopularMovie.imageViewFirstPopularMoviePoster)
+
         popularMoviesBinding.includeViewFirstPopularMovie.firstPopularMovieView.setOnClickListener {
-            Toast.makeText(context, firstPopularMovie?.title, Toast.LENGTH_SHORT).show()
+            val action = PopularMoviesFragmentDirections
+                .actionPopularMoviesFragmentToMovieDetailsFragment(id = movieId)
+            findNavController().navigate(action)
         }
     }
 

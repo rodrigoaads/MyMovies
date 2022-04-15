@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rodrigoads.mymovies.BuildConfig
 import com.rodrigoads.mymovies.R
-import com.rodrigoads.mymovies.databinding.PopularMovieItemLayoutBinding
+import com.rodrigoads.mymovies.databinding.MovieItemLayoutBinding
 import com.rodrigoads.mymovies.presenter.popular.model.PopularMoviesUiModel
 
 class PopularMoviesViewHolder(
-    popularMovieItemLayoutBinding: PopularMovieItemLayoutBinding,
+    popularMovieItemLayoutBinding: MovieItemLayoutBinding,
     private val onClickItem : (PopularMoviesUiModel) -> Unit
 ) : RecyclerView.ViewHolder(popularMovieItemLayoutBinding.root) {
 
@@ -30,7 +30,7 @@ class PopularMoviesViewHolder(
     companion object{
         fun create(parent: ViewGroup, onClickItem : (PopularMoviesUiModel) -> Unit) : PopularMoviesViewHolder{
             val inflater = LayoutInflater.from(parent.context)
-            val item = PopularMovieItemLayoutBinding.inflate(inflater, parent, false)
+            val item = MovieItemLayoutBinding.inflate(inflater, parent, false)
             return PopularMoviesViewHolder(item, onClickItem)
         }
     }

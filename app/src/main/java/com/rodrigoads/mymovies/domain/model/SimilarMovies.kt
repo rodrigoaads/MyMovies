@@ -1,9 +1,9 @@
 package com.rodrigoads.mymovies.domain.model
 
-import com.rodrigoads.mymovies.presenter.popular.model.PopularMoviesUiModel
+import com.rodrigoads.mymovies.presenter.details.model.SimilarMoviesUiModel
 
-data class PopularMovies(
-    val poster_path : String?,
+data class SimilarMovies(
+    val poster_path: String?,
     val adult: Boolean,
     val overview: String,
     val release_date: String,
@@ -19,8 +19,8 @@ data class PopularMovies(
     val vote_average: Double
 )
 
-fun PopularMovies.toPopularMoviesUiModel() : PopularMoviesUiModel{
-    return PopularMoviesUiModel(
+fun SimilarMovies.toSimilarMoviesUiModel() : SimilarMoviesUiModel{
+    return SimilarMoviesUiModel(
         poster_path = this.poster_path,
         title = this.title,
         id = this.id,

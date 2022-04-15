@@ -11,4 +11,12 @@
     <string name="first_movie_title">Movie Title</string>
     <string name="first_popular_movie_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula lobortis enim, ut laoreet magna scelerisque eget. Fusce eu ipsum orci. Integer eget dapibus nisl. Vivamus tristique libero sit amet orci fringilla, vitae lobortis enim interdum. Aenean dictum felis ac ipsum faucibus, lobortis tempus eros consequat. Donec ac ante in nisi dictum venenatis. Nullam id congue ante. Morbi in feugiat lectus. Proin pharetra lacinia tincidunt. Quisque sagittis fringilla odio at congue. Morbi vitae blandit velit. Suspendisse nulla nunc, maximus ac elit ultrices, bibendum laoreet metus.</string>
     <string name="something_didnt_go_right">Algo não ocorreu bem :(</string>
+    <string name="an_error_has_occurred_please_try_again">Ocorreu um erro, tente novamente!</string>
+    <string name="movie_details_title">Titulo do filme</string>
+    <string name="movie_details_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id finibus nulla. Aenean nec placerat arcu, nec fermentum nibh. Maecenas euismod nunc sit amet pellentesque ultrices. Ut vel erat vitae libero lobortis pellentesque sit amet eu eros. Quisque sollicitudin quam tempus auctor pellentesque. Vivamus lacinia egestas lorem et consectetur. Maecenas varius ex in ipsum lacinia, sed dignissim leo facilisis. In egestas velit arcu, id venenatis orci feugiat vel. Fusce non vestibulum arcu. Sed auctor a dui ac aliquet.</string>
+    <string name="movie_details_release_date">Data de lançamento</string>
+    <string name="movie_details_vote_average">0.0</string>
+    <string name="my_lists">Minhas listas</string>
+    <string name="similar_movies">Filmes Similares</string>
+    <string name="runtime">Tempo de duração</string>
 </resources>

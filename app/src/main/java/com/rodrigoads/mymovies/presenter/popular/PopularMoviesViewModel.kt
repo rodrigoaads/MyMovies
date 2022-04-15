@@ -26,29 +26,36 @@ class PopularMoviesViewModel @Inject constructor(
     private val getPopularMoviesUseCase: GetPopularMoviesUseCase
 ): ViewModel() {
     val firstPopularMovie = MutableLiveData<ResultUiState<PopularMoviesUiModel?>>()
+    val popularMovies = MutableLiveData<PagingData<PopularMoviesUiModel>>()
 
-    fun getPopularMovies() : Flow<PagingData<PopularMoviesUiModel>> {
-        return getPopularMoviesUseCase(getPopularMoviesPagingConfig()){
-            viewModelScope.launch {
-                it.asFlow().collectLatest{
-                    when(it){
-                        is ResultStatus.Loading -> {
-                            firstPopularMovie.postValue(ResultUiState.Loading)
-                        }
-                        is ResultStatus.Success -> {
-                            firstPopularMovie.postValue(ResultUiState.Success(it.data?.toPopularMoviesUiModel()))
-                        }
-                        is ResultStatus.Error -> {
-                            firstPopularMovie.postValue(ResultUiState.Error(it.e))
+    init {
+        getPopularMovies()
+    }
+
+    private fun getPopularMovies(){
+        viewModelScope.launch {
+            getPopularMoviesUseCase(getPopularMoviesPagingConfig()){
+                viewModelScope.launch {
+                    it.asFlow().collectLatest{
+                        when(it){
+                            is ResultStatus.Loading -> {
+                                firstPopularMovie.postValue(ResultUiState.Loading)
+                            }
+                            is ResultStatus.Success -> {
+                                firstPopularMovie.postValue(ResultUiState.Success(it.data?.toPopularMoviesUiModel()))
+                            }
+                            is ResultStatus.Error -> {
+                                firstPopularMovie.postValue(ResultUiState.Error(it.e))
+                            }
                         }
                     }
                 }
+            }.cachedIn(viewModelScope).collect {
+                popularMovies.postValue(it.map { popularMovies ->
+                    popularMovies.toPopularMoviesUiModel()
+                })
             }
-        }.map {
-            it.map { popularMovies ->
-                popularMovies.toPopularMoviesUiModel()
-            }
-        }.cachedIn(viewModelScope)
+        }
     }
 
     private fun getPopularMoviesPagingConfig() = PagingConfig(

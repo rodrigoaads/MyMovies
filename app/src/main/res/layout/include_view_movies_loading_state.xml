@@ -11,12 +11,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <include layout="@layout/shimmer_layout_popular_movie_item"/>
-        <include layout="@layout/shimmer_layout_popular_movie_item"/>
-        <include layout="@layout/shimmer_layout_popular_movie_item"/>
-        <include layout="@layout/shimmer_layout_popular_movie_item"/>
-        <include layout="@layout/shimmer_layout_popular_movie_item"/>
-        <include layout="@layout/shimmer_layout_popular_movie_item"/>
+        <include layout="@layout/shimmer_layout_movie_item"/>
+        <include layout="@layout/shimmer_layout_movie_item"/>
+        <include layout="@layout/shimmer_layout_movie_item"/>
+        <include layout="@layout/shimmer_layout_movie_item"/>
+        <include layout="@layout/shimmer_layout_movie_item"/>
+        <include layout="@layout/shimmer_layout_movie_item"/>
 
     </LinearLayout>
 

@@ -1,6 +1,6 @@
-package com.rodrigoads.mymovies.presenter.popular.model
+package com.rodrigoads.mymovies.presenter.details.model
 
-data class PopularMoviesUiModel(
+data class SimilarMoviesUiModel(
     val poster_path : String?,
     val title: String,
     val id: Int,

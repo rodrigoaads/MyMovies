@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class RetrofitPopularMoviesDataSource @Inject constructor(
     private val tmdbService: TmdbService
-) : PopularMoviesRemoteDataSource {
+) : PopularMoviesDataSource {
     override suspend fun getPopularMovies(page: Int): RequestNetworkResponse<PopularMoviesNetworkResponse> {
         return withContext(Dispatchers.IO){
             tmdbService.getPopularMovies(page)
@@ -17,6 +17,6 @@ class RetrofitPopularMoviesDataSource @Inject constructor(
     }
 }
 
-interface PopularMoviesRemoteDataSource {
+interface PopularMoviesDataSource {
     suspend fun getPopularMovies(page: Int) : RequestNetworkResponse<PopularMoviesNetworkResponse>
 }

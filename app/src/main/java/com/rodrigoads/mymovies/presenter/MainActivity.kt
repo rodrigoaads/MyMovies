@@ -43,6 +43,30 @@ class MainActivity : AppCompatActivity() {
                 mainActivityBinding.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
             }
         }
+
+        mainActivityBinding.bottomNav.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.popular -> {
+                    navController.navigate(R.id.popular)
+                    navController.clearBackStack(R.id.movieDetailsFragment)
+                    true
+                }
+                R.id.search -> {
+                    navController.navigate(R.id.search)
+                    navController.clearBackStack(R.id.movieDetailsFragment)
+                    true
+                }
+                R.id.watch_later -> {
+                    navController.navigate(R.id.watch_later)
+                    navController.clearBackStack(R.id.movieDetailsFragment)
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
+        }
+
     }
 }
 

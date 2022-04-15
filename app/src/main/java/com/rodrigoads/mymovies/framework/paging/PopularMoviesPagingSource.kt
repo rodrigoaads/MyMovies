@@ -6,20 +6,18 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.rodrigoads.mymovies.data.network.base.ResultStatus
 import com.rodrigoads.mymovies.data.network.model.toPopularMovies
-import com.rodrigoads.mymovies.data.network.remote.PopularMoviesRemoteDataSource
+import com.rodrigoads.mymovies.data.network.remote.PopularMoviesDataSource
 import com.rodrigoads.mymovies.domain.model.PopularMovies
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 class PopularMoviesPagingSource(
-    private val popularMoviesRemoteDataSource: PopularMoviesRemoteDataSource,
+    private val popularMoviesDataSource: PopularMoviesDataSource,
     private val firstItem: (LiveData<ResultStatus<PopularMovies?>>) -> Unit
 ) : PagingSource<Int, PopularMovies>() {
     @Suppress("TooGenericExceptionCaught")
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PopularMovies> {
         return try {
             val page = params.key ?: 1
-            val request = popularMoviesRemoteDataSource.getPopularMovies(page)
+            val request = popularMoviesDataSource.getPopularMovies(page)
 
             if (page == 1) {
                 val firstRequestItem = request.results[0].toPopularMovies()
@@ -38,9 +36,11 @@ class PopularMoviesPagingSource(
                 } else null
             )
         } catch (e: Exception) {
-            firstItem(liveData {
-                emit(ResultStatus.Error(e))
-            })
+            if (params.key == 1) {
+                firstItem(liveData {
+                    emit(ResultStatus.Error(e))
+                })
+            }
             LoadResult.Error(e)
         }
     }

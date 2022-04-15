@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.paging.filter
 import androidx.paging.map
@@ -38,21 +39,27 @@ class PopularMoviesListFragment : Fragment() {
         initPopularAdapter()
         observeInitialLoadState()
 
-        lifecycleScope.launch {
-            popularMoviesViewModel.getPopularMovies().collect {
+        popularMoviesViewModel.popularMovies.observe(viewLifecycleOwner, Observer {
+            lifecycleScope.launch {
                 popularMoviesAdapter.submitData(it)
             }
-        }
+        })
     }
 
     private fun initPopularAdapter() {
         popularMoviesAdapter = PopularMoviesAdapter {
-            Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
+            val action = PopularMoviesFragmentDirections
+                .actionPopularMoviesFragmentToMovieDetailsFragment(it.id)
+            findNavController().navigate(action)
         }
 
         with(popularMoviesListFragmentBinding.popularMoviesRecyclerView) {
             setHasFixedSize(true)
-            adapter = popularMoviesAdapter
+            adapter = popularMoviesAdapter.withLoadStateFooter(
+                PopularMoviesLoadStateAdapter{
+                    popularMoviesAdapter.retry()
+                }
+            )
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
     }
@@ -70,7 +77,7 @@ class PopularMoviesListFragment : Fragment() {
                         }
                         is LoadState.Error -> {
                             popularMoviesListFragmentBinding
-                                .includeViewPopularMoviesErrorState
+                                .includeViewMoviesErrorState
                                 .buttonPopularMoviesTryAgain
                                 .setOnClickListener {
                                     popularMoviesAdapter.refresh()
@@ -81,6 +88,8 @@ class PopularMoviesListFragment : Fragment() {
             }
         }
     }
+
+
 
     companion object {
         const val FLIPPER_CHILD_POPULAR_MOVIES_LOADING_STATE = 0

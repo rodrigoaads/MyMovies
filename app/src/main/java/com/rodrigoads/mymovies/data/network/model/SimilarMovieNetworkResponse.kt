@@ -1,9 +1,9 @@
 package com.rodrigoads.mymovies.data.network.model
 
-import com.rodrigoads.mymovies.domain.model.PopularMovies
+import com.rodrigoads.mymovies.domain.model.SimilarMovies
 
-data class PopularMoviesNetworkResponse(
-    val poster_path : String?,
+data class SimilarMovieNetworkResponse(
+    val poster_path: String?,
     val adult: Boolean,
     val overview: String,
     val release_date: String,
@@ -19,8 +19,8 @@ data class PopularMoviesNetworkResponse(
     val vote_average: Double
 )
 
-fun PopularMoviesNetworkResponse.toPopularMovies() : PopularMovies {
-    return PopularMovies(
+fun SimilarMovieNetworkResponse.toSimilarMovies() : SimilarMovies {
+    return SimilarMovies(
         poster_path = this.poster_path,
         adult = this.adult,
         overview = this.overview,
