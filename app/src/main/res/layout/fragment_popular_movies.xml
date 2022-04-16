@@ -1,87 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:background="@color/primary_white"
     tools:context=".presenter.popular.PopularMoviesFragment">
 
-    <ImageView
-        android:id="@+id/image_view_back_bg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:scaleType="fitStart"
-        android:src="@drawable/back_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/text_view_first_popupar_movie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_sans_bold"
-        android:text="#1"
-        android:textColor="@color/primary_purple"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/view_flipper_first_popular_movie"
-        app:layout_constraintStart_toStartOf="@+id/view_flipper_first_popular_movie" />
+       <ImageView
+           android:id="@+id/image_view_back_bg"
+           android:layout_width="0dp"
+           android:layout_height="0dp"
+           android:scaleType="fitStart"
+           android:src="@drawable/back_bg"
+           app:layout_constraintBottom_toBottomOf="@+id/fragment_list_popular_movies"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
 
-    <ViewFlipper
-        android:id="@+id/view_flipper_first_popular_movie"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_view_popular_movies"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/image_view_back_bg">
+       <TextView
+           android:id="@+id/textView"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="10dp"
+           android:layout_marginTop="10dp"
+           android:fontFamily="@font/nunito_sans_semibold"
+           android:text="@string/popular"
+           android:textColor="@color/primary_purple"
+           android:textSize="24sp"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="@+id/image_view_back_bg" />
 
-        <ProgressBar
-            android:id="@+id/progress_bar_loading_first_popular_movie_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+       <ViewFlipper
+           android:id="@+id/view_flipper_first_popular_movie"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="10dp"
+           android:layout_marginEnd="10dp"
+           app:layout_constraintBottom_toTopOf="@+id/text_view_popular_movies"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <include
-            android:id="@+id/include_view_first_popular_movie"
-            layout="@layout/include_view_first_popular_movie" />
+           <ProgressBar
+               android:id="@+id/progress_bar_loading_first_popular_movie_state"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center" />
+
+           <include
+               android:id="@+id/include_view_first_popular_movie"
+               layout="@layout/include_view_first_popular_movie" />
 
 
-        <TextView
-            android:id="@+id/text_view_error_first_popular_movie_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="@string/something_didnt_go_right"
-            android:textColor="@color/primary_purple"
-            android:textSize="24sp" />
+           <TextView
+               android:id="@+id/text_view_error_first_popular_movie_state"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:fontFamily="@font/nunito_sans_bold"
+               android:text="@string/something_didnt_go_right"
+               android:textColor="@color/primary_purple"
+               android:textSize="24sp" />
 
-    </ViewFlipper>
+       </ViewFlipper>
 
-    <TextView
-        android:id="@+id/text_view_popular_movies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/nunito_sans_bold"
-        android:text="@string/popular_movies"
-        android:textColor="@color/primary_purple"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/fragment_list_popular_movies"
-        app:layout_constraintStart_toStartOf="@+id/fragment_list_popular_movies" />
+       <TextView
+           android:id="@+id/text_view_popular_movies"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="10dp"
+           android:layout_marginBottom="5dp"
+           android:fontFamily="@font/nunito_sans_bold"
+           android:text="@string/popular_movies"
+           android:textColor="@color/primary_purple"
+           android:textSize="16sp"
+           app:layout_constraintBottom_toTopOf="@+id/fragment_list_popular_movies"
+           app:layout_constraintStart_toStartOf="@+id/fragment_list_popular_movies" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_list_popular_movies"
-        android:name="com.rodrigoads.mymovies.presenter.popular.PopularMoviesListFragment"
-        android:layout_width="0dp"
-        android:layout_height="240dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+       <androidx.fragment.app.FragmentContainerView
+           android:id="@+id/fragment_list_popular_movies"
+           android:name="com.rodrigoads.mymovies.presenter.popular.PopularMoviesListFragment"
+           android:layout_width="0dp"
+           android:layout_height="240dp"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"/>
+   </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

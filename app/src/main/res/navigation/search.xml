@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/searchMovieFragment"
         android:name="com.rodrigoads.mymovies.presenter.search.SearchMovieFragment"
-        android:label="@string/search"
+        android:label=""
         tools:layout="@layout/fragment_search_movie" />
 </navigation>

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,7 +22,7 @@
 
         <View
             android:id="@+id/view_backdrop_bg"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/backdrop_movie_bg"
             app:layout_constraintBottom_toBottomOf="@id/image_view_movie_backdrop"
@@ -51,9 +52,12 @@
             android:id="@+id/text_view_movie_details_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
             android:fontFamily="@font/nunito_sans_bold"
-            android:maxEms="8"
+            android:maxEms="7"
+            android:maxLines="3"
             android:text="@string/movie_details_title"
             android:textAlignment="center"
             android:textColor="@color/primary_purple"

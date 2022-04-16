@@ -2,7 +2,10 @@ package com.rodrigoads.mymovies.presenter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
@@ -42,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             if(!topLevelDestinations){
                 mainActivityBinding.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
             }
+
         }
 
         mainActivityBinding.bottomNav.setOnItemSelectedListener {
@@ -66,7 +70,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 }
 

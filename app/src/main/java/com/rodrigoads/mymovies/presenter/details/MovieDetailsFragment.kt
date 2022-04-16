@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.rodrigoads.mymovies.BuildConfig
 import com.rodrigoads.mymovies.R
 import com.rodrigoads.mymovies.databinding.FragmentMovieDetailsBinding
+import com.rodrigoads.mymovies.presenter.MainActivity
 import com.rodrigoads.mymovies.presenter.base.ResultUiState
 import com.rodrigoads.mymovies.presenter.details.model.MovieDetailsUiModel
 import dagger.hilt.android.AndroidEntryPoint

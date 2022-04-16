@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/popular"
+    android:label=" "
     app:startDestination="@id/popularMoviesFragment">
 
     <fragment
         android:id="@+id/popularMoviesFragment"
         android:name="com.rodrigoads.mymovies.presenter.popular.PopularMoviesFragment"
-        android:label="@string/popular"
-        tools:layout="@layout/fragment_popular_movies" >
+        android:label=""
+        tools:layout="@layout/fragment_popular_movies">
         <action
             android:id="@+id/action_popularMoviesFragment_to_movieDetailsFragment"
             app:destination="@id/movieDetailsFragment" />
@@ -18,14 +19,14 @@
         android:id="@+id/movieDetailsFragment"
         android:name="com.rodrigoads.mymovies.presenter.details.MovieDetailsFragment"
         android:label=""
-        tools:layout="@layout/fragment_movie_details" >
+        tools:layout="@layout/fragment_movie_details">
         <argument
             android:name="id"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            app:argType="integer" />
         <action
-            app:popUpTo="@id/popularMoviesFragment"
             android:id="@+id/action_movieDetailsFragment_self"
-            app:destination="@id/movieDetailsFragment" />
+            app:destination="@id/movieDetailsFragment"
+            app:popUpTo="@id/popularMoviesFragment" />
     </fragment>
 </navigation>
