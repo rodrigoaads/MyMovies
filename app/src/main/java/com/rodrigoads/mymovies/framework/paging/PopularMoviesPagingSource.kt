@@ -5,7 +5,7 @@ import androidx.lifecycle.liveData
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.rodrigoads.mymovies.data.network.base.ResultStatus
-import com.rodrigoads.mymovies.data.network.model.toPopularMovies
+import com.rodrigoads.mymovies.data.network.model.popularmovies.toPopularMovies
 import com.rodrigoads.mymovies.data.network.remote.PopularMoviesDataSource
 import com.rodrigoads.mymovies.domain.model.PopularMovies
 

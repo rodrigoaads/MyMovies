@@ -5,8 +5,8 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#171717</color>
+    <color name="white">#FFFFFF</color>
 
     <!-- MyMovies Colors -->
     <color name="primary_blue">#3E9FF7</color>
@@ -17,5 +17,7 @@
     <color name="primary_gray">#DDDDDD</color>
     <color name="secondary_gray">#B5B5B5</color>
     <color name="text_gray">#A7A7A7</color>
+    <color name="primary_black">#121212</color>
+    <color name="secondary_black">#272727</color>
 
 </resources>

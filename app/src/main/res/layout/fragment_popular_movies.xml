@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/primary_white"
     tools:context=".presenter.popular.PopularMoviesFragment">
 
    <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +15,7 @@
            android:id="@+id/image_view_back_bg"
            android:layout_width="0dp"
            android:layout_height="0dp"
-           android:scaleType="fitStart"
+           android:scaleType="centerCrop"
            android:src="@drawable/back_bg"
            app:layout_constraintBottom_toBottomOf="@+id/fragment_list_popular_movies"
            app:layout_constraintEnd_toEndOf="parent"
@@ -24,17 +23,14 @@
            app:layout_constraintTop_toTopOf="parent" />
 
        <TextView
-           android:id="@+id/textView"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:layout_marginStart="10dp"
-           android:layout_marginTop="10dp"
-           android:fontFamily="@font/nunito_sans_semibold"
-           android:text="@string/popular"
+           android:fontFamily="@font/nunito_sans_bold"
+           android:text="#1"
            android:textColor="@color/primary_purple"
-           android:textSize="24sp"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="@+id/image_view_back_bg" />
+           android:textSize="34sp"
+           app:layout_constraintBottom_toTopOf="@+id/view_flipper_first_popular_movie"
+           app:layout_constraintStart_toStartOf="@+id/view_flipper_first_popular_movie" />
 
        <ViewFlipper
            android:id="@+id/view_flipper_first_popular_movie"
@@ -45,7 +41,7 @@
            app:layout_constraintBottom_toTopOf="@+id/text_view_popular_movies"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/textView">
+           app:layout_constraintTop_toTopOf="@+id/image_view_back_bg">
 
            <ProgressBar
                android:id="@+id/progress_bar_loading_first_popular_movie_state"

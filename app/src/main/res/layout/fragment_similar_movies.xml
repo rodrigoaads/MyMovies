@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/primary_white">
+    android:layout_height="wrap_content">
 
     <include
         android:id="@+id/include_view_movies_loading_state"

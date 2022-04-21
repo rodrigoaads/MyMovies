@@ -1,4 +1,4 @@
-package com.rodrigoads.mymovies.data.network.model
+package com.rodrigoads.mymovies.data.network.model.moviedetails
 
 data class ProductionCompaniesNetworkResponse(
     val name: String,

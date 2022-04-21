@@ -1,11 +1,13 @@
 package com.rodrigoads.mymovies.presenter
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
@@ -33,7 +35,8 @@ class MainActivity : AppCompatActivity() {
             topLevelDestinationIds = setOf(
                 R.id.popularMoviesFragment,
                 R.id.searchMovieFragment,
-                R.id.watchLaterFragment
+                R.id.watchLaterFragment,
+                R.id.categoriesFragment
             )
         )
 
@@ -44,11 +47,14 @@ class MainActivity : AppCompatActivity() {
             val topLevelDestinations = appBarConfiguration.topLevelDestinations.contains(destination.id)
             if(!topLevelDestinations){
                 mainActivityBinding.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+                mainActivityBinding.toolbar.isVisible = true
+            }else{
+                mainActivityBinding.toolbar.isVisible = false
             }
 
         }
 
-        mainActivityBinding.bottomNav.setOnItemSelectedListener {
+        /*mainActivityBinding.bottomNav.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.popular -> {
                     navController.navigate(R.id.popular)
@@ -65,11 +71,16 @@ class MainActivity : AppCompatActivity() {
                     navController.clearBackStack(R.id.movieDetailsFragment)
                     true
                 }
+                R.id.categories -> {
+                    navController.navigate(R.id.categories)
+                    navController.clearBackStack(R.id.categoriesFragment)
+                    true
+                }
                 else -> {
                     false
                 }
             }
-        }
+        }*/
     }
 }
 

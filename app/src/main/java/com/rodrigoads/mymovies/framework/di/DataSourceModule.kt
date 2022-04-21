@@ -24,4 +24,8 @@ interface DataSourceModule {
         retrofitSimilarMoviesDataSource: RetrofitSimilarMoviesDataSource
     ) : SimilarMoviesDataSource
 
+    @Binds
+    fun bindMovieCategoriesDataSource(
+        retrofitMovieCategoriesDataSource: RetrofitMovieCategoriesDataSource
+    ): MovieCategoriesDataSource
 }

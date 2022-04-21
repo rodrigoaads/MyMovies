@@ -19,4 +19,7 @@
     <string name="my_lists">Minhas listas</string>
     <string name="similar_movies">Filmes Similares</string>
     <string name="runtime">Tempo de duração</string>
+    <string name="categories">Categorias</string>
+    <string name="category_name">Nome Categoria</string>
+    <string name="category_list">Lista de categorias</string>
 </resources>

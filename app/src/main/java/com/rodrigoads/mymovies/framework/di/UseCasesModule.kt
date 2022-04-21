@@ -23,4 +23,9 @@ interface UseCasesModule {
     fun bindGetSimilarMoviesUseCase(
         getSimilarMovies: GetSimilarMovies
     ): GetSimilarMoviesUseCase
+
+    @Binds
+    fun bindMovieCategoriesUseCase(
+        getMovieCategories: GetMovieCategories
+    ): GetMovieCategoriesUseCase
 }

@@ -15,8 +15,8 @@
             android:id="@+id/poster_image_movie"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:background="@color/primary_gray" />
+            android:background="?attr/colorSecondaryVariant"
+            android:scaleType="centerCrop" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

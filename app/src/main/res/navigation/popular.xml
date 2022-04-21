@@ -9,11 +9,11 @@
     <fragment
         android:id="@+id/popularMoviesFragment"
         android:name="com.rodrigoads.mymovies.presenter.popular.PopularMoviesFragment"
-        android:label=""
+        android:label="@string/popular"
         tools:layout="@layout/fragment_popular_movies">
         <action
             android:id="@+id/action_popularMoviesFragment_to_movieDetailsFragment"
-            app:destination="@id/movieDetailsFragment" />
+            app:destination="@id/movieDetailsFragment"/>
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"
@@ -27,6 +27,6 @@
         <action
             android:id="@+id/action_movieDetailsFragment_self"
             app:destination="@id/movieDetailsFragment"
-            app:popUpTo="@id/popularMoviesFragment" />
+            app:popUpTo="@id/movieDetailsFragment"/>
     </fragment>
 </navigation>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -17,6 +18,7 @@ import com.rodrigoads.mymovies.databinding.FragmentSimilarMoviesBinding
 import com.rodrigoads.mymovies.presenter.popular.PopularMoviesFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -47,9 +49,11 @@ class SimilarMoviesFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        val parent = requireParentFragment().arguments
-        parent?.getInt("id")?.let {
-            similarMoviesViewModel.getSimilarMovies(it)
+        if (similarMoviesViewModel.similarMovies.value == null){
+            val parent = requireParentFragment().arguments
+            parent?.getInt("id")?.let {
+                similarMoviesViewModel.getSimilarMovies(it)
+            }
         }
     }
 

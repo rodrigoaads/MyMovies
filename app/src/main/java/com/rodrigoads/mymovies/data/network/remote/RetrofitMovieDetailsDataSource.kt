@@ -2,7 +2,7 @@ package com.rodrigoads.mymovies.data.network.remote
 
 import com.rodrigoads.mymovies.data.network.TmdbService
 import com.rodrigoads.mymovies.data.network.base.ResultStatus
-import com.rodrigoads.mymovies.data.network.model.MovieDetailsNetworkResponse
+import com.rodrigoads.mymovies.data.network.model.moviedetails.MovieDetailsNetworkResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

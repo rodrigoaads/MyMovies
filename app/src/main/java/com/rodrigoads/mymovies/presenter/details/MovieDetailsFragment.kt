@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -55,7 +56,9 @@ class MovieDetailsFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        movieDetailsViewModel.getMovieDetails(args.id)
+        if (movieDetailsViewModel.movieDetails.value == null){
+            movieDetailsViewModel.getMovieDetails(args.id)
+        }
     }
 
     private fun setMovieDetails(movieDetails: MovieDetailsUiModel) {

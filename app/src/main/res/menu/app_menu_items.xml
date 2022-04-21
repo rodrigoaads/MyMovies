@@ -7,6 +7,11 @@
         android:icon="@drawable/ic_baseline_local_movies_24"/>
 
     <item
+        android:id="@+id/categories"
+        android:title="@string/categories"
+        android:icon="@drawable/ic_baseline_movie_24"/>
+
+    <item
         android:id="@+id/search"
         android:title="@string/search"
         android:icon="@drawable/ic_baseline_search_24"/>

@@ -2,7 +2,7 @@ package com.rodrigoads.mymovies.framework.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.rodrigoads.mymovies.data.network.model.toSimilarMovies
+import com.rodrigoads.mymovies.data.network.model.similarmovies.toSimilarMovies
 import com.rodrigoads.mymovies.data.network.remote.SimilarMoviesDataSource
 import com.rodrigoads.mymovies.domain.model.SimilarMovies
 import javax.inject.Inject

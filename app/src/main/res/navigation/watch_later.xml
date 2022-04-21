@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/watchLaterFragment"
         android:name="com.rodrigoads.mymovies.presenter.watchlater.WatchLaterFragment"
-        android:label=""
+        android:label="@string/watch_later"
         tools:layout="@layout/fragment_watch_later" />
 </navigation>

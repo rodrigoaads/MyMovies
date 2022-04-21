@@ -5,6 +5,7 @@
     app:startDestination="@id/popular">
 
     <include app:graph="@navigation/popular" />
+    <include app:graph="@navigation/categories" />
     <include app:graph="@navigation/search" />
     <include app:graph="@navigation/watch_later" />
 </navigation>

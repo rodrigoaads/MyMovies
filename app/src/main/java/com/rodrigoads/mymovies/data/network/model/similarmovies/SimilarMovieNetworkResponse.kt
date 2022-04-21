@@ -1,4 +1,4 @@
-package com.rodrigoads.mymovies.data.network.model
+package com.rodrigoads.mymovies.data.network.model.similarmovies
 
 import com.rodrigoads.mymovies.domain.model.SimilarMovies
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_flipper_categories"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presenter.categories.CategoriesFragment">
+
+    <ProgressBar
+        android:id="@+id/progress_bar_category_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+    <include
+        android:id="@+id/include_view_category_list"
+        layout="@layout/include_view_category_list"/>
+
+    <include
+        android:id="@+id/include_view_movies_error_state"
+        layout="@layout/include_view_movies_error_state"/>
+
+</ViewFlipper>

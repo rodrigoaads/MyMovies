@@ -23,4 +23,9 @@ interface RepositoriesModule {
     fun bindSimilarMoviesRepository(
         similarMoviesRepositoryImpl: SimilarMoviesRepositoryImpl
     ): SimilarMoviesRepository
+
+    @Binds
+    fun bindMovieCategoriesRepository(
+        movieCategoriesRepositoryImpl: MovieCategoriesRepositoryImpl
+    ): MovieCategoriesRepository
 }

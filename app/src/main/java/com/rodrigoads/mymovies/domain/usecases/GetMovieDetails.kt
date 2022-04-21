@@ -1,10 +1,7 @@
 package com.rodrigoads.mymovies.domain.usecases
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.liveData
-import androidx.lifecycle.map
 import com.rodrigoads.mymovies.data.network.base.ResultStatus
-import com.rodrigoads.mymovies.data.network.model.toMovieDetails
+import com.rodrigoads.mymovies.data.network.model.moviedetails.toMovieDetails
 import com.rodrigoads.mymovies.data.repositories.MovieDetailsRepository
 import com.rodrigoads.mymovies.domain.model.MovieDetails
 import kotlinx.coroutines.flow.Flow
