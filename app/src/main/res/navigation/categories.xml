@@ -9,5 +9,40 @@
         android:id="@+id/categoriesFragment"
         android:name="com.rodrigoads.mymovies.presenter.categories.CategoriesFragment"
         android:label="@string/categories"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_moviesByCategoryFragment"
+            app:destination="@id/moviesByCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesByCategoryFragment"
+        android:name="com.rodrigoads.mymovies.presenter.bycategory.MoviesByCategoryFragment"
+        android:label="{name}"
+        tools:layout="@layout/fragment_movies_by_category" >
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue=""/>
+        <action
+            android:id="@+id/action_moviesByCategoryFragment_to_movieDetailsFragment2"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.rodrigoads.mymovies.presenter.details.MovieDetailsFragment"
+        android:label=""
+        tools:layout="@layout/fragment_movie_details" >
+        <action
+            android:id="@+id/action_movieDetailsFragment_self"
+            app:destination="@id/movieDetailsFragment"
+            app:popUpTo="@id/movieDetailsFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

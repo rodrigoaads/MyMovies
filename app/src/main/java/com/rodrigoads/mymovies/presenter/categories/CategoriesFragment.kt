@@ -9,7 +9,9 @@ import android.widget.GridLayout
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.flexbox.*
 import com.rodrigoads.mymovies.R
@@ -52,16 +54,18 @@ class CategoriesFragment : Fragment() {
 
     private fun initAdapter(categoryList: List<CategoriesUiModel>) {
         categoriesAdapter = CategoriesAdapter(categoryList){
-            Toast.makeText(context, it.name, Toast.LENGTH_SHORT).show()
+            val action = CategoriesFragmentDirections
+                .actionCategoriesFragmentToMoviesByCategoryFragment(id = it.id, name = it.name)
+            findNavController().navigate(action)
         }
-        val layoutManagerFlex = FlexboxLayoutManager(context).apply {
+        /*val layoutManagerFlex = FlexboxLayoutManager(context).apply {
             justifyContent = JustifyContent.CENTER
             alignItems = AlignItems.CENTER
             flexDirection = FlexDirection.ROW
-        }
+        }*/
         with(categoriesBinding.includeViewCategoryList.recyclerViewCategories){
             adapter = categoriesAdapter
-            layoutManager = layoutManagerFlex
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
     }
 
@@ -69,6 +73,5 @@ class CategoriesFragment : Fragment() {
         const val FLIPPER_CHILD_CATEGORIES_LOADING_STATE = 0
         const val FLIPPER_CHILD_CATEGORIES = 1
         const val FLIPPER_CHILD_CATEGORIES_ERROR_STATE = 2
-        const val SPAN_COUNT = 2
     }
 }

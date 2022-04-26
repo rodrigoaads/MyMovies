@@ -3,6 +3,7 @@ package com.rodrigoads.mymovies.data.network
 import com.rodrigoads.mymovies.data.network.model.RequestNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.moviecategories.MovieCategoriesNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.moviedetails.MovieDetailsNetworkResponse
+import com.rodrigoads.mymovies.data.network.model.moviesbycategory.MoviesByCategoryNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.popularmovies.PopularMoviesNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.similarmovies.SimilarMovieNetworkResponse
 import retrofit2.http.GET
@@ -28,4 +29,10 @@ interface TmdbService {
 
     @GET("genre/movie/list")
     suspend fun getCategories() : MovieCategoriesNetworkResponse
+
+    @GET("discover/movie")
+    suspend fun getMoviesByCategory(
+        @Query("page") page: Int,
+        @Query("with_genres") withGenres: Int
+    ): RequestNetworkResponse<MoviesByCategoryNetworkResponse>
 }

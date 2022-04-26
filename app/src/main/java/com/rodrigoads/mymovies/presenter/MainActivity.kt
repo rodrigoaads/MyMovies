@@ -47,10 +47,8 @@ class MainActivity : AppCompatActivity() {
             val topLevelDestinations = appBarConfiguration.topLevelDestinations.contains(destination.id)
             if(!topLevelDestinations){
                 mainActivityBinding.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-                mainActivityBinding.toolbar.isVisible = true
-            }else{
-                mainActivityBinding.toolbar.isVisible = false
             }
+            mainActivityBinding.toolbar.isVisible = destination.id != R.id.popularMoviesFragment
 
         }
 

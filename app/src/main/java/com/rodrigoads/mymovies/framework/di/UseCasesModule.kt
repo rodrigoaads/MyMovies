@@ -28,4 +28,9 @@ interface UseCasesModule {
     fun bindMovieCategoriesUseCase(
         getMovieCategories: GetMovieCategories
     ): GetMovieCategoriesUseCase
+
+    @Binds
+    fun bindGetMoviesByCategoryUseCase(
+        getMoviesByCategory: GetMoviesByCategory
+    ): GetMoviesByCategoryUseCase
 }

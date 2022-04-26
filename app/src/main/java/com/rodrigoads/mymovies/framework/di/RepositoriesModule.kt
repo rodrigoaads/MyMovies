@@ -28,4 +28,9 @@ interface RepositoriesModule {
     fun bindMovieCategoriesRepository(
         movieCategoriesRepositoryImpl: MovieCategoriesRepositoryImpl
     ): MovieCategoriesRepository
+
+    @Binds
+    fun bindMoviesByCategoryRepository(
+        moviesByCategoryRepositoryImpl: MoviesByCategoryRepositoryImpl
+    ): MoviesByCategoryRepository
 }
