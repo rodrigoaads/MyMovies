@@ -9,6 +9,7 @@
         <item name="colorSecondary">@color/primary_purple</item>
         <item name="colorSecondaryVariant">@color/secondary_black</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="android:editTextColor">@color/primary_purple</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

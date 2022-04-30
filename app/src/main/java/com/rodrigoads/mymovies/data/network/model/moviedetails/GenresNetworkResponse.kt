@@ -4,7 +4,7 @@ import com.rodrigoads.mymovies.domain.model.MovieGenres
 
 data class GenresNetworkResponse(
     val id: Int,
-    val name: String
+    val name: String?
 )
 
 fun GenresNetworkResponse.toMovieGenres() : MovieGenres {

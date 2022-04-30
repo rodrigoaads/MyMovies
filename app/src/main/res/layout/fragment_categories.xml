@@ -12,9 +12,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
-    <include
-        android:id="@+id/include_view_category_list"
-        layout="@layout/include_view_category_list"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_categories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        tools:listitem="@layout/category_item_layout"/>
 
     <include
         android:id="@+id/include_view_movies_error_state"

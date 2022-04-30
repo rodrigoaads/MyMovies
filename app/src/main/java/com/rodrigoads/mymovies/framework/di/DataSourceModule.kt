@@ -33,4 +33,9 @@ interface DataSourceModule {
     fun bindMoviesByCategoryDataSource(
         retrofitMoviesByCategoryDataSource: RetrofitMoviesByCategoryDataSource
     ): MoviesByCategoryDataSource
+
+    @Binds
+    fun bindMoviesBySearchDataSource(
+        retrofitMoviesBySearchDataSource: RetrofitMoviesBySearchDataSource
+    ): MoviesBySearchDataSource
 }

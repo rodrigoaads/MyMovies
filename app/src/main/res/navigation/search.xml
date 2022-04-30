@@ -9,5 +9,23 @@
         android:id="@+id/searchMovieFragment"
         android:name="com.rodrigoads.mymovies.presenter.search.SearchMovieFragment"
         android:label="@string/search"
-        tools:layout="@layout/fragment_search_movie" />
+        tools:layout="@layout/fragment_search_movie" >
+        <action
+            android:id="@+id/action_searchMovieFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.rodrigoads.mymovies.presenter.details.MovieDetailsFragment"
+        android:label=""
+        tools:layout="@layout/fragment_movie_details" >
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_self"
+            app:destination="@id/movieDetailsFragment"
+            app:popUpTo="@id/movieDetailsFragment" />
+    </fragment>
 </navigation>

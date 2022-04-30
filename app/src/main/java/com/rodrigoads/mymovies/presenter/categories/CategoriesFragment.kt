@@ -58,12 +58,8 @@ class CategoriesFragment : Fragment() {
                 .actionCategoriesFragmentToMoviesByCategoryFragment(id = it.id, name = it.name)
             findNavController().navigate(action)
         }
-        /*val layoutManagerFlex = FlexboxLayoutManager(context).apply {
-            justifyContent = JustifyContent.CENTER
-            alignItems = AlignItems.CENTER
-            flexDirection = FlexDirection.ROW
-        }*/
-        with(categoriesBinding.includeViewCategoryList.recyclerViewCategories){
+
+        with(categoriesBinding.recyclerViewCategories){
             adapter = categoriesAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }

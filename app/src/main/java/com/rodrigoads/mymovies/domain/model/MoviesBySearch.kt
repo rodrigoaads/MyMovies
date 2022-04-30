@@ -1,8 +1,8 @@
 package com.rodrigoads.mymovies.domain.model
 
-import com.rodrigoads.mymovies.presenter.details.model.SimilarMoviesUiModel
+import com.rodrigoads.mymovies.presenter.search.model.SearchMovieUiModel
 
-data class SimilarMovies(
+data class MoviesBySearch(
     val poster_path: String?,
     val adult: Boolean?,
     val overview: String?,
@@ -19,11 +19,11 @@ data class SimilarMovies(
     val vote_average: Double?
 )
 
-fun SimilarMovies.toSimilarMoviesUiModel() : SimilarMoviesUiModel{
-    return SimilarMoviesUiModel(
+fun MoviesBySearch.toMoviesBySearchUiModel() : SearchMovieUiModel {
+    return SearchMovieUiModel(
         poster_path = this.poster_path,
         title = this.title,
         id = this.id,
-        overview = this.overview
+        vote_average = this.vote_average
     )
 }

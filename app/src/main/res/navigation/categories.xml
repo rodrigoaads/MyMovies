@@ -26,7 +26,8 @@
         <argument
             android:name="name"
             app:argType="string"
-            android:defaultValue=""/>
+            android:defaultValue=""
+            app:nullable="true" />
         <action
             android:id="@+id/action_moviesByCategoryFragment_to_movieDetailsFragment2"
             app:destination="@id/movieDetailsFragment" />

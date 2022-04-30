@@ -4,7 +4,7 @@ import com.rodrigoads.mymovies.presenter.categories.model.CategoriesUiModel
 
 data class MovieGenres(
     val id: Int,
-    val name: String
+    val name: String?
 )
 
 fun MovieGenres.toCategoriesUiModel() : CategoriesUiModel {

@@ -20,6 +20,7 @@ class MoviesByCategoryViewHolder(
         Glide.with(itemView)
             .load(BuildConfig.GET_IMAGE_URL + moviesByCategoryUiModel.poster_path)
             .fallback(R.drawable.ic_baseline_broken_image_24)
+            .error(R.drawable.ic_baseline_question_mark_24)
             .into(imagePoster)
 
         itemView.setOnClickListener {

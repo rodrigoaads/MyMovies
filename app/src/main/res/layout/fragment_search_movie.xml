@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_flipper_search_movie"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".presenter.search.SearchMovieFragment">
 
+    <TextView
+        android:id="@+id/text_view_search_stand_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/nunito_sans"
+        android:text="@string/do_your_research_in_the_bar_above"
+        android:textColor="@color/secondary_gray"
+        android:textSize="16sp" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar_loading_serach_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="60dp"
+        android:id="@+id/recycler_view_search_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include
+        android:id="@+id/include_view_movies_error_state"
+        layout="@layout/include_view_movies_error_state"/>
+</ViewFlipper>

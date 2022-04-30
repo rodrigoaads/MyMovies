@@ -3,31 +3,31 @@ package com.rodrigoads.mymovies.data.network.model.moviedetails
 import com.rodrigoads.mymovies.domain.model.MovieDetails
 
 data class MovieDetailsNetworkResponse(
-    val adult: Boolean,
+    val adult: Boolean?,
     val backdrop_path: String?,
     val belongs_to_collection: Any?,
-    val budget: Int,
+    val budget: Int?,
     val genres: List<GenresNetworkResponse>,
     val homepage: String?,
     val id: Int,
     val imdb_id: String?,
-    val original_language: String,
-    val original_title: String,
+    val original_language: String?,
+    val original_title: String?,
     val overview: String?,
-    val popularity: Double,
+    val popularity: Double?,
     val poster_path: String?,
     val production_companies: List<ProductionCompaniesNetworkResponse>,
     val production_countries: List<ProductionCountriesNetworkResponse>,
-    val release_date: String,
-    val revenue: Int,
+    val release_date: String?,
+    val revenue: Long?,
     val runtime: Int?,
     val spoken_languages: List<SpokenLanguagesNetworkResponse>,
-    val status: String,
+    val status: String?,
     val tagline: String?,
-    val title: String,
-    val video: Boolean,
-    val vote_average: Double,
-    val vote_count: Int
+    val title: String?,
+    val video: Boolean?,
+    val vote_average: Double?,
+    val vote_count: Int?
 )
 
 fun MovieDetailsNetworkResponse.toMovieDetails() : MovieDetails {

@@ -20,6 +20,7 @@ class PopularMoviesViewHolder(
         Glide.with(itemView)
             .load(BuildConfig.GET_IMAGE_URL + popularMoviesUiModel.poster_path)
             .fallback(R.drawable.ic_baseline_broken_image_24)
+            .error(R.drawable.ic_baseline_question_mark_24)
             .into(popularMoviePosterImage)
 
         itemView.setOnClickListener {

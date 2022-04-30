@@ -3,6 +3,7 @@ package com.rodrigoads.mymovies.presenter
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -40,13 +41,18 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
+        setSupportActionBar(mainActivityBinding.toolbar)
         mainActivityBinding.bottomNav.setupWithNavController(navController)
         mainActivityBinding.toolbar.setupWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val topLevelDestinations = appBarConfiguration.topLevelDestinations.contains(destination.id)
             if(!topLevelDestinations){
-                mainActivityBinding.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+                if (destination.id == R.id.movieDetailsFragment){
+                    mainActivityBinding.toolbar.setNavigationIcon(R.drawable.ic_back)
+                }else {
+                    mainActivityBinding.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+                }
             }
             mainActivityBinding.toolbar.isVisible = destination.id != R.id.popularMoviesFragment
 
@@ -80,5 +86,6 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
     }
+
 }
 

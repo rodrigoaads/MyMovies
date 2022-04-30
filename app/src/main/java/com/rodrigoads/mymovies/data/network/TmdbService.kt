@@ -4,6 +4,7 @@ import com.rodrigoads.mymovies.data.network.model.RequestNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.moviecategories.MovieCategoriesNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.moviedetails.MovieDetailsNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.moviesbycategory.MoviesByCategoryNetworkResponse
+import com.rodrigoads.mymovies.data.network.model.moviesbysearch.MoviesBySearchNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.popularmovies.PopularMoviesNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.similarmovies.SimilarMovieNetworkResponse
 import retrofit2.http.GET
@@ -35,4 +36,10 @@ interface TmdbService {
         @Query("page") page: Int,
         @Query("with_genres") withGenres: Int
     ): RequestNetworkResponse<MoviesByCategoryNetworkResponse>
+
+    @GET("search/movie")
+    suspend fun getMoviesBySearch(
+        @Query("query") query : String,
+        @Query("page") page: Int
+    ): RequestNetworkResponse<MoviesBySearchNetworkResponse>
 }

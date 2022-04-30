@@ -1,9 +1,9 @@
-package com.rodrigoads.mymovies.data.network.model.popularmovies
+package com.rodrigoads.mymovies.data.network.model.moviesbysearch
 
-import com.rodrigoads.mymovies.domain.model.PopularMovies
+import com.rodrigoads.mymovies.domain.model.MoviesBySearch
 
-data class PopularMoviesNetworkResponse(
-    val poster_path : String?,
+data class MoviesBySearchNetworkResponse(
+    val poster_path: String?,
     val adult: Boolean?,
     val overview: String?,
     val release_date: String?,
@@ -19,8 +19,8 @@ data class PopularMoviesNetworkResponse(
     val vote_average: Double?
 )
 
-fun PopularMoviesNetworkResponse.toPopularMovies() : PopularMovies {
-    return PopularMovies(
+fun MoviesBySearchNetworkResponse.toMoviesBySearch() : MoviesBySearch {
+    return MoviesBySearch(
         poster_path = this.poster_path,
         adult = this.adult,
         overview = this.overview,

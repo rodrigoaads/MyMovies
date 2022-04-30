@@ -76,11 +76,13 @@ class MovieDetailsFragment : Fragment() {
         Glide.with(this)
             .load(BuildConfig.GET_IMAGE_URL + movieDetails.poster_path)
             .fallback(R.drawable.ic_baseline_broken_image_24)
+            .error(R.drawable.ic_baseline_question_mark_24)
             .into(movieDetailsBinding.includeViewMovieDetails.imageViewMoviePoster)
 
         Glide.with(this)
             .load(BuildConfig.GET_IMAGE_URL + movieDetails.backdrop_path)
             .fallback(R.drawable.ic_baseline_broken_image_24)
+            .error(R.drawable.ic_baseline_image_not_supported_24)
             .into(movieDetailsBinding.includeViewMovieDetails.imageViewMovieBackdrop)
     }
 

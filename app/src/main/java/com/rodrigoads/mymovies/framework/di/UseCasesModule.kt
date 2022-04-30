@@ -33,4 +33,9 @@ interface UseCasesModule {
     fun bindGetMoviesByCategoryUseCase(
         getMoviesByCategory: GetMoviesByCategory
     ): GetMoviesByCategoryUseCase
+
+    @Binds
+    fun bindGetMoviesBySearchUseCase(
+        getMoviesBySearch: GetMoviesBySearch
+    ): GetMoviesBySearchUseCase
 }

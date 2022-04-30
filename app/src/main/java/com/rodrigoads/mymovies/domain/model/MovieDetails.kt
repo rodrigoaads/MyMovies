@@ -13,10 +13,10 @@ data class MovieDetails(
     val imdb_id: String?,
     val overview: String?,
     val poster_path: String?,
-    val release_date: String,
+    val release_date: String?,
     val runtime: Int?,
-    val title: String,
-    val vote_average: Double,
+    val title: String?,
+    val vote_average: Double?,
     var formattedRuntime: String? = null,
     var formattedDate: String? = null
 ){
@@ -30,7 +30,7 @@ data class MovieDetails(
         }
 
         @Suppress("MagicNumber")
-        formattedDate = release_date.substring(0..3)
+        formattedDate = release_date?.substring(0..3)
     }
 
     companion object {
