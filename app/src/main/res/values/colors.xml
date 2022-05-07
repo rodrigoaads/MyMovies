@@ -19,5 +19,6 @@
     <color name="text_gray">#A7A7A7</color>
     <color name="primary_black">#121212</color>
     <color name="secondary_black">#272727</color>
+    <color name="place_holder_black">#222222</color>
 
 </resources>

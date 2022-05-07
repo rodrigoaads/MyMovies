@@ -79,9 +79,11 @@ class SearchMovieFragment : Fragment() {
                 .actionSearchMovieFragmentToMovieDetailsFragment(id = it.id)
             findNavController().navigate(action)
         }
-
         searchMovieBinding.recyclerViewSearchResult.apply {
-            adapter = searchMovieAdapter
+            adapter = searchMovieAdapter.withLoadStateFooter(
+                SearchMoviesLoadStateAdapter{
+                searchMovieAdapter.retry()
+            })
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
     }
@@ -116,7 +118,6 @@ class SearchMovieFragment : Fragment() {
     }
 
     companion object {
-        const val FLIPPER_CHILD_SEARCH_MOVIE_STAND_BY = 0
         const val FLIPPER_CHILD_SEARCH_MOVIE_LOADING_STATE = 1
         const val FLIPPER_CHILD_SEARCH_MOVIE = 2
         const val FLIPPER_CHILD_SEARCH_MOVIE_ERROR_STATE = 3

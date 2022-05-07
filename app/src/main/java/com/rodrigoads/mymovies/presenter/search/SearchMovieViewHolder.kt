@@ -16,11 +16,13 @@ class SearchMovieViewHolder(
     private val searchMoviePosterImage = movieBySearchModelBinding.imageViewPosterMoviesBySearch
     private val searchMovieTitle = movieBySearchModelBinding.textViewMovieBySearchMovieTitle
     private val searchMovieVoteCount = movieBySearchModelBinding.textViewMovieBySearchVoteAverage
+    private val searchMovieReleaseDate = movieBySearchModelBinding.textViewMovieBySearchReleaseDate
     //private val searchMovieFavoriteIcon = movieBySearchModelBinding.imageViewMovieBySearchFavoriteMovie
 
     fun bind(searchMovieUiModel: SearchMovieUiModel){
         searchMovieTitle.text = searchMovieUiModel.title
         searchMovieVoteCount.text = searchMovieUiModel.vote_average.toString()
+        searchMovieReleaseDate.text = searchMovieUiModel.formattedDate
 
         Glide.with(itemView)
             .load(BuildConfig.GET_IMAGE_URL + searchMovieUiModel.poster_path)

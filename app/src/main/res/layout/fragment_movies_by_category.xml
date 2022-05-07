@@ -13,7 +13,7 @@
         android:layout_gravity="center" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:id="@+id/recycler_view_movies_by_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

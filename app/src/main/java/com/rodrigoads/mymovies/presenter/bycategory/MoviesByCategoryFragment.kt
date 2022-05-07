@@ -67,12 +67,16 @@ class MoviesByCategoryFragment : Fragment() {
 
         val flexLayoutManager = FlexboxLayoutManager(context).apply {
             alignItems = AlignItems.CENTER
-            justifyContent = JustifyContent.SPACE_AROUND
+            justifyContent = JustifyContent.SPACE_BETWEEN
 
         }
 
         moviesByCategoryBinding.recyclerViewMoviesByCategory.apply {
-            adapter = moviesByCategoryAdapter
+            adapter = moviesByCategoryAdapter.withLoadStateFooter(
+                MoviesByCategoryLoadStateAdapter{
+                    moviesByCategoryAdapter.retry()
+                }
+            )
             layoutManager = flexLayoutManager
         }
     }

@@ -55,6 +55,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/nunito_sans_bold"
             android:maxEms="7"
             android:maxLines="3"
@@ -82,7 +83,7 @@
             android:id="@+id/text_view_movie_details_runtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="15dp"
             android:fontFamily="@font/nunito_sans_bold"
             android:text="@string/runtime"
             android:textColor="@color/secondary_gray"
@@ -95,6 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/materialCardView">
@@ -105,17 +107,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
-                android:drawableTop="@drawable/ic_baseline_add_24"
+                android:padding="10dp"
                 android:fontFamily="@font/nunito_sans_bold"
-                android:maxEms="4"
-                android:text="@string/my_lists"
+                android:maxEms="5"
+                android:text="@string/watch_later"
                 android:textAlignment="center"
                 android:textColor="@color/primary_purple"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
-                app:layout_constraintStart_toEndOf="@+id/materialCardView" />
+                app:layout_constraintStart_toEndOf="@+id/materialCardView"
+                app:drawableTopCompat="@drawable/ic_baseline_add_24" />
 
             <TextView
                 android:id="@+id/text_view_movie_details_vote_average"

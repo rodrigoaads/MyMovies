@@ -26,6 +26,7 @@ class PopularMoviesPagingSource(
                         emit(ResultStatus.Loading)
                         emit(ResultStatus.Success(firstRequestItem))
                     })
+                request.results.removeAt(0)
             }
 
             LoadResult.Page(

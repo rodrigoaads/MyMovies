@@ -8,6 +8,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 
+
 def apikeyPropertiesFile = rootProject.file("apikey.properties")
 def apikeyProperties = new Properties()
 apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
@@ -44,6 +45,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
     }
     viewBinding {
         enabled = true
@@ -102,7 +104,7 @@ dependencies {
     //Glide
     def glide_version = "4.13.0"
     implementation("com.github.bumptech.glide:glide:$glide_version")
-    annotationProcessor("com.github.bumptech.glide:compiler:$glide_version")
+    kapt("com.github.bumptech.glide:compiler:$glide_version")
 
     //Shimmer
     def shimmer_version = "0.5.0"
@@ -111,5 +113,11 @@ dependencies {
     //FlexBox
     def flexbox_version = "3.0.0"
     implementation ("com.google.android.flexbox:flexbox:$flexbox_version")
+
+    //Room
+    def room_version = "2.4.2"
+    implementation ("androidx.room:room-ktx:$room_version")
+    kapt ("androidx.room:room-compiler:$room_version")
+    androidTestImplementation ("androidx.room:room-testing:$room_version")
 
 }

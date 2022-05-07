@@ -23,47 +23,69 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/text_view_movie_by_search_movie_title"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:maxEms="10"
-            android:maxLines="3"
-            android:text="@string/movies_by_search_movie_title"
-            android:textAlignment="center"
-            android:textColor="@color/primary_purple"
-            android:textSize="20sp"
+            android:orientation="vertical"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_view_poster_movies_by_search"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/text_view_movie_by_search_movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:maxEms="8"
+                android:maxLines="3"
+                android:text="@string/movies_by_search_movie_title"
+                android:textAlignment="center"
+                android:textColor="@color/primary_purple"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_view_poster_movies_by_search"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_view_movie_by_search_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@string/movie_by_search_release_date"
+                android:textAlignment="center"
+                android:textColor="@color/secondary_gray" />
+
+            <TextView
+                android:id="@+id/text_view_movie_by_search_vote_average"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@string/movie_by_search_movie_vote_average"
+                android:textColor="@color/primary_purple"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                app:drawableStartCompat="@drawable/ic_baseline_star_24"
+                app:layout_constraintEnd_toEndOf="@+id/text_view_movie_by_search_movie_title"
+                app:layout_constraintStart_toStartOf="@+id/text_view_movie_by_search_movie_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_movie_by_search_movie_title" />
+
+        </LinearLayout>
+
 
         <ImageView
             android:id="@+id/image_view_movie_by_search_favorite_movie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/text_view_movie_by_search_movie_title"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/text_view_movie_by_search_movie_title"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_star_24"
             android:visibility="gone"/>
 
-        <TextView
-            android:id="@+id/text_view_movie_by_search_vote_average"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="@string/movie_by_search_movie_vote_average"
-            android:textColor="@color/primary_purple"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/text_view_movie_by_search_movie_title"
-            app:layout_constraintStart_toStartOf="@+id/text_view_movie_by_search_movie_title"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_movie_by_search_movie_title"
-            app:drawableStartCompat="@drawable/ic_baseline_star_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

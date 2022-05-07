@@ -5,4 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".presenter.watchlater.WatchLaterFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_movies_by_watch_later"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?android:attr/actionBarSize"/>
 </FrameLayout>

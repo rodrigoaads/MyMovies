@@ -16,13 +16,24 @@ data class MoviesBySearch(
     val popularity: Double?,
     val vote_count: Int?,
     val video: Boolean?,
-    val vote_average: Double?
-)
+    val vote_average: Double?,
+    var formattedDate: String? = null
+){
+    init {
+        @Suppress("MagicNumber")
+        formattedDate = release_date?.let{
+            if(it.isNotEmpty()){
+                release_date.substring(0..3)
+            }else null
+        }
+    }
+}
 
 fun MoviesBySearch.toMoviesBySearchUiModel() : SearchMovieUiModel {
     return SearchMovieUiModel(
         poster_path = this.poster_path,
         title = this.title,
+        formattedDate = this.formattedDate,
         id = this.id,
         vote_average = this.vote_average
     )

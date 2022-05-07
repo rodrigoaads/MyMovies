@@ -16,7 +16,7 @@
         android:id="@+id/recycler_view_categories"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="?android:attr/actionBarSize"
         tools:listitem="@layout/category_item_layout"/>
 
     <include

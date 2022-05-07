@@ -38,4 +38,9 @@ interface RepositoriesModule {
     fun bindMoviesBySearchRepository(
         moviesBySearchRepositoryImpl: MoviesBySearchRepositoryImpl
     ): MoviesBySearchRepository
+
+    @Binds
+    fun bindWatchLaterRepository(
+        watchLaterRepositoryImpl: WatchLaterRepositoryImpl
+    ): WatchLaterRepository
 }

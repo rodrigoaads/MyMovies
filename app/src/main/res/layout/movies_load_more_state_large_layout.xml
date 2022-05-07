@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="230dp"
-    android:padding="5dp"
-    android:layout_gravity="center">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
 
     <TextView
-        android:id="@+id/text_view_load_state_error"
-        android:layout_width="match_parent"
+        android:id="@+id/text_view_large_load_state_error"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/nunito_sans"
-        android:maxEms="5"
         android:text="@string/an_error_has_occurred_please_try_again"
         android:textAlignment="center"
         android:textColor="@color/secondary_gray"
         app:drawableTopCompat="@drawable/ic_baseline_sentiment_very_dissatisfied_24" />
 
     <ProgressBar
-        android:id="@+id/progress_bar_load_state_loading"
-        android:layout_width="match_parent"
+        android:id="@+id/progress_bar_large_load_state_loading"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 

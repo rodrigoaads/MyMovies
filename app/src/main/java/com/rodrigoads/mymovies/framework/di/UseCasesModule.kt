@@ -38,4 +38,9 @@ interface UseCasesModule {
     fun bindGetMoviesBySearchUseCase(
         getMoviesBySearch: GetMoviesBySearch
     ): GetMoviesBySearchUseCase
+
+    @Binds
+    fun bindGetWatchLaterUseCase(
+        getWatchLater: GetWatchLater
+    ): GetWatchLaterUseCase
 }

@@ -18,7 +18,8 @@ data class MovieDetails(
     val title: String?,
     val vote_average: Double?,
     var formattedRuntime: String? = null,
-    var formattedDate: String? = null
+    var formattedDate: String? = null,
+    var watchLater : Boolean = false
 ){
     init {
         this.runtime?.let {
@@ -30,7 +31,11 @@ data class MovieDetails(
         }
 
         @Suppress("MagicNumber")
-        formattedDate = release_date?.substring(0..3)
+        formattedDate = release_date?.let{
+            if(it.isNotEmpty()){
+                release_date.substring(0..3)
+            }else null
+        }
     }
 
     companion object {
@@ -48,6 +53,7 @@ fun MovieDetails.toMovieDetailsUiModel() : MovieDetailsUiModel {
         title = this.title,
         vote_average = this.vote_average,
         formattedDate = this.formattedDate,
-        formattedRuntime = this.formattedRuntime
+        formattedRuntime = this.formattedRuntime,
+        watchLater = this.watchLater
     )
 }

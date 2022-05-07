@@ -20,7 +20,7 @@ class MoviesBySearchPagingSource(
             LoadResult.Page(
                 data = request.results.map { it.toMoviesBySearch() },
                 prevKey = null,
-                nextKey = if (page < request.page){
+                nextKey = if (page < request.total_pages){
                     page + NEXT_PAGE
                 }else null
             )
