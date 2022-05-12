@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.rodrigoads.mymovies.R
 import com.rodrigoads.mymovies.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -50,6 +51,8 @@ class MainActivity : AppCompatActivity() {
             mainActivityBinding.toolbar.isVisible = destination.id != R.id.popularMoviesFragment
 
         }
+
+        supportActionBar?.title = navController.currentDestination?.label
 
         /*mainActivityBinding.bottomNav.setOnItemSelectedListener {
             when(it.itemId){

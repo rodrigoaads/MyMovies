@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
-import com.rodrigoads.mymovies.databinding.MoviesLoadMoreStateLayoutBinding
+import com.rodrigoads.mymovies.databinding.LoadMoreStateLayoutBinding
 
 class SimilarMoviesLoadStateViewHolder(
-    similarMoviesLoadMoreStateLayoutBinding: MoviesLoadMoreStateLayoutBinding,
+    similarMoviesLoadMoreStateLayoutBinding: LoadMoreStateLayoutBinding,
     retry : () -> Unit
 ) : RecyclerView.ViewHolder(similarMoviesLoadMoreStateLayoutBinding.root) {
 
@@ -27,7 +27,7 @@ class SimilarMoviesLoadStateViewHolder(
     companion object {
         fun create(parent: ViewGroup, retry : () -> Unit): SimilarMoviesLoadStateViewHolder {
             val inflater = LayoutInflater.from(parent.context)
-            val item = MoviesLoadMoreStateLayoutBinding.inflate(inflater, parent, false)
+            val item = LoadMoreStateLayoutBinding.inflate(inflater, parent, false)
             return SimilarMoviesLoadStateViewHolder(item, retry)
         }
     }

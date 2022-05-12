@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/image_view_movie_backdrop"
             android:layout_width="0dp"
-            android:layout_height="250dp"
+            android:layout_height="350dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,8 +32,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialCardView"
-            android:layout_width="160dp"
-            android:layout_height="230dp"
+            android:layout_width="260dp"
+            android:layout_height="390dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             app:cardElevation="5dp"
@@ -62,7 +62,7 @@
             android:text="@string/movie_details_title"
             android:textAlignment="center"
             android:textColor="@color/primary_purple"
-            android:textSize="16sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/text_view_movie_details_release_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/materialCardView"
@@ -75,6 +75,7 @@
             android:fontFamily="@font/nunito_sans_bold"
             android:text="@string/movie_details_release_date"
             android:textColor="@color/secondary_gray"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/text_view_movie_details_runtime"
             app:layout_constraintEnd_toEndOf="@+id/text_view_movie_details_title"
             app:layout_constraintStart_toStartOf="@+id/text_view_movie_details_title" />
@@ -87,6 +88,7 @@
             android:fontFamily="@font/nunito_sans_bold"
             android:text="@string/runtime"
             android:textColor="@color/secondary_gray"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
             app:layout_constraintEnd_toEndOf="@+id/text_view_movie_details_release_date"
             app:layout_constraintStart_toStartOf="@+id/text_view_movie_details_release_date" />
@@ -115,7 +117,7 @@
                 android:text="@string/watch_later"
                 android:textAlignment="center"
                 android:textColor="@color/primary_purple"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 app:drawableTopCompat="@drawable/ic_baseline_add_24"
                 app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
                 app:layout_constraintStart_toEndOf="@+id/materialCardView" />
@@ -130,7 +132,7 @@
                 android:gravity="center"
                 android:text="@string/movie_details_vote_average"
                 android:textColor="@color/primary_purple"
-                android:textSize="20sp" />
+                android:textSize="34sp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -143,9 +145,11 @@
             android:fontFamily="@font/nunito_sans"
             android:text="@string/movie_details_description"
             android:textColor="@color/secondary_gray"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/materialCardView"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_movie_cast" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_movie_cast" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment_movie_cast"

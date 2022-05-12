@@ -8,7 +8,7 @@ data class MovieCategoriesNetworkResponse(
     val genres: List<GenresNetworkResponse>
 )
 
-fun MovieCategoriesNetworkResponse.toMovieCategories(): MovieCategories {
+fun MovieCategoriesNetworkResponse.toMovieGenres(): MovieCategories {
     return MovieCategories(
         genres = genres.map {
             it.toMovieGenres()

@@ -43,4 +43,9 @@ interface RepositoriesModule {
     fun bindWatchLaterRepository(
         watchLaterRepositoryImpl: WatchLaterRepositoryImpl
     ): WatchLaterRepository
+
+    @Binds
+    fun bindMovieCreditsRepository(
+        movieCreditsRepositoryImpl: MovieCreditsRepositoryImpl
+    ): MovieCreditsRepository
 }

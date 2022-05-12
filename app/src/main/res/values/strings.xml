@@ -27,4 +27,6 @@
     <string name="do_your_research_in_the_bar_above">Faça sua pesquisa na barra acima!</string>
     <string name="movie_by_search_movie_vote_average">Vote</string>
     <string name="remove_list">Remover da lista</string>
+    <string name="actor_name">Nome do ator</string>
+    <string name="cast">Elenco</string>
 </resources>

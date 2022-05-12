@@ -1,8 +1,7 @@
 package com.rodrigoads.mymovies.domain.usecases
 
 import com.rodrigoads.mymovies.data.network.base.ResultStatus
-import com.rodrigoads.mymovies.data.network.model.moviecategories.toMovieCategories
-import com.rodrigoads.mymovies.data.network.model.moviedetails.toMovieGenres
+import com.rodrigoads.mymovies.data.network.model.moviecategories.toMovieGenres
 import com.rodrigoads.mymovies.data.repositories.MovieCategoriesRepository
 import com.rodrigoads.mymovies.domain.model.MovieCategories
 import kotlinx.coroutines.flow.Flow
@@ -16,7 +15,7 @@ class GetMovieCategories @Inject constructor(
         return movieCategoriesRepository.getRemoteMovieCategories().map {
             when(it){
                 is ResultStatus.Success -> {
-                    ResultStatus.Success(it.data.toMovieCategories())
+                    ResultStatus.Success(it.data.toMovieGenres())
                 }
                 is ResultStatus.Error -> {
                     ResultStatus.Error(it.e)

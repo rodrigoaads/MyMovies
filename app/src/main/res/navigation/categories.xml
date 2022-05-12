@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/moviesByCategoryFragment"
         android:name="com.rodrigoads.mymovies.presenter.bycategory.MoviesByCategoryFragment"
-        android:label="{name}"
+        android:label=""
         tools:layout="@layout/fragment_movies_by_category" >
         <argument
             android:name="id"
@@ -29,7 +29,7 @@
             android:defaultValue=""
             app:nullable="true" />
         <action
-            android:id="@+id/action_moviesByCategoryFragment_to_movieDetailsFragment2"
+            android:id="@+id/action_moviesByCategoryFragment_to_movieDetailsFragment"
             app:destination="@id/movieDetailsFragment" />
     </fragment>
     <fragment

@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -14,12 +14,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
 import com.google.android.flexbox.AlignItems
-import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
-import com.rodrigoads.mymovies.R
 import com.rodrigoads.mymovies.databinding.FragmentMoviesByCategoryBinding
-import com.rodrigoads.mymovies.presenter.details.MovieDetailsFragmentDirections
+import com.rodrigoads.mymovies.presenter.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -30,6 +28,7 @@ class MoviesByCategoryFragment : Fragment() {
     private val moviesByCategoryViewModel: MoviesByCategoryViewModel by viewModels()
     private val args: MoviesByCategoryFragmentArgs by navArgs()
     private lateinit var moviesByCategoryAdapter: MoviesByCategoryAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +40,7 @@ class MoviesByCategoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initMoviesByCategoryAdapter()
         observeInitialLoadState()
 
@@ -53,6 +53,7 @@ class MoviesByCategoryFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        (activity as AppCompatActivity).supportActionBar?.title = args.name
         if (moviesByCategoryViewModel.moviesByCategory.value == null) {
             moviesByCategoryViewModel.getMoviesByCategory(args.id)
         }
@@ -61,13 +62,13 @@ class MoviesByCategoryFragment : Fragment() {
     private fun initMoviesByCategoryAdapter() {
         moviesByCategoryAdapter = MoviesByCategoryAdapter {
             val action = MoviesByCategoryFragmentDirections
-                .actionMoviesByCategoryFragmentToMovieDetailsFragment2(id = it.id)
+                .actionMoviesByCategoryFragmentToMovieDetailsFragment(id = it.id)
             findNavController().navigate(action)
         }
 
         val flexLayoutManager = FlexboxLayoutManager(context).apply {
             alignItems = AlignItems.CENTER
-            justifyContent = JustifyContent.SPACE_BETWEEN
+            justifyContent = JustifyContent.SPACE_AROUND
 
         }
 

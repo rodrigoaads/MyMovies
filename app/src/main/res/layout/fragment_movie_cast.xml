@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_flipper_movie_cast"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".presenter.details.MovieCastFragment">
+
+    <include
+        android:id="@+id/include_view_movie_cast_loading_state"
+        layout="@layout/include_view_movie_cast_loading_state"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_movie_cast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/movie_cast_item_layout"/>
+
+    <include
+        android:id="@+id/include_view_movies_error_state"
+        layout="@layout/include_view_movies_error_state"/>
+
+</ViewFlipper>

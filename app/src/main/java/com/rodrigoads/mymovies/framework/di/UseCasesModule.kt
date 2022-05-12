@@ -43,4 +43,9 @@ interface UseCasesModule {
     fun bindGetWatchLaterUseCase(
         getWatchLater: GetWatchLater
     ): GetWatchLaterUseCase
+
+    @Binds
+    fun bindGetMovieCreditsUseCase(
+        getMovieCredits: GetMovieCredits
+    ): GetMovieCreditsUseCase
 }

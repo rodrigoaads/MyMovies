@@ -1,6 +1,7 @@
 package com.rodrigoads.mymovies.data.network
 
 import com.rodrigoads.mymovies.data.network.model.RequestNetworkResponse
+import com.rodrigoads.mymovies.data.network.model.credits.MovieCreditsNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.moviecategories.MovieCategoriesNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.moviedetails.MovieDetailsNetworkResponse
 import com.rodrigoads.mymovies.data.network.model.moviesbycategory.MoviesByCategoryNetworkResponse
@@ -42,4 +43,9 @@ interface TmdbService {
         @Query("query") query : String,
         @Query("page") page: Int
     ): RequestNetworkResponse<MoviesBySearchNetworkResponse>
+
+    @GET("movie/{movie_id}/credits")
+    suspend fun getMovieCredits(
+        @Path("movie_id") movieId: Int
+    ): MovieCreditsNetworkResponse
 }

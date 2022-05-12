@@ -23,7 +23,7 @@ class CategoriesViewModel @Inject constructor(
         getCategories()
     }
 
-    private fun getCategories() {
+    fun getCategories() {
         viewModelScope.launch {
             getMovieCategoriesUseCase.getMovieCategories().collectLatest {
                  when(it){

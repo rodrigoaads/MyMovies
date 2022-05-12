@@ -46,6 +46,9 @@ class CategoriesFragment : Fragment() {
                     FLIPPER_CHILD_CATEGORIES
                 }
                 is ResultUiState.Error -> {
+                    categoriesBinding.includeViewMoviesErrorState.buttonPopularMoviesTryAgain.setOnClickListener {
+                        categoriesViewModel.getCategories()
+                    }
                     FLIPPER_CHILD_CATEGORIES_ERROR_STATE
                 }
             }

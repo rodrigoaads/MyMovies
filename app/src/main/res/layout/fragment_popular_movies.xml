@@ -41,7 +41,7 @@
            app:layout_constraintBottom_toTopOf="@+id/text_view_popular_movies"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="@+id/image_view_back_bg">
+           app:layout_constraintTop_toTopOf="parent">
 
            <ProgressBar
                android:id="@+id/progress_bar_loading_first_popular_movie_state"
@@ -83,7 +83,7 @@
            android:id="@+id/fragment_list_popular_movies"
            android:name="com.rodrigoads.mymovies.presenter.popular.PopularMoviesListFragment"
            android:layout_width="0dp"
-           android:layout_height="240dp"
+           android:layout_height="wrap_content"
            app:layout_constraintBottom_toBottomOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"/>
