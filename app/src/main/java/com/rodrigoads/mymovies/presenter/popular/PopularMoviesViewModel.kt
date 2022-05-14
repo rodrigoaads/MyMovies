@@ -24,7 +24,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PopularMoviesViewModel @Inject constructor(
     private val getPopularMoviesUseCase: GetPopularMoviesUseCase
-): ViewModel() {
+) : ViewModel() {
     val firstPopularMovie = MutableLiveData<ResultUiState<PopularMoviesUiModel?>>()
     val popularMovies = MutableLiveData<PagingData<PopularMoviesUiModel>>()
 
@@ -32,12 +32,12 @@ class PopularMoviesViewModel @Inject constructor(
         getPopularMovies()
     }
 
-    private fun getPopularMovies(){
+    private fun getPopularMovies() {
         viewModelScope.launch {
-            getPopularMoviesUseCase(getPopularMoviesPagingConfig()){
+            getPopularMoviesUseCase(getPopularMoviesPagingConfig()) {
                 viewModelScope.launch {
-                    it.asFlow().collectLatest{
-                        when(it){
+                    it.asFlow().collectLatest {
+                        when (it) {
                             is ResultStatus.Loading -> {
                                 firstPopularMovie.postValue(ResultUiState.Loading)
                             }

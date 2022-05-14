@@ -11,11 +11,11 @@ import kotlinx.coroutines.flow.Flow
 interface WatchLaterDao {
 
     @Query("SELECT * from watch_later")
-    fun getAllWatchLaterMovies() : Flow<List<WatchLaterEntity>>
+    fun getAllWatchLaterMovies(): Flow<List<WatchLaterEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertWatchLaterMovie(watchLaterEntity: WatchLaterEntity)
 
     @Query("DELETE from watch_later WHERE id = :id")
-    suspend fun removeWatchLaterMovie(id : Int)
+    suspend fun removeWatchLaterMovie(id: Int)
 }

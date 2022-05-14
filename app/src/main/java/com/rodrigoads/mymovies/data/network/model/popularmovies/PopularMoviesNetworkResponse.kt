@@ -3,7 +3,7 @@ package com.rodrigoads.mymovies.data.network.model.popularmovies
 import com.rodrigoads.mymovies.domain.model.PopularMovies
 
 data class PopularMoviesNetworkResponse(
-    val poster_path : String?,
+    val poster_path: String?,
     val adult: Boolean?,
     val overview: String?,
     val release_date: String?,
@@ -19,7 +19,7 @@ data class PopularMoviesNetworkResponse(
     val vote_average: Double?
 )
 
-fun PopularMoviesNetworkResponse.toPopularMovies() : PopularMovies {
+fun PopularMoviesNetworkResponse.toPopularMovies(): PopularMovies {
     return PopularMovies(
         poster_path = this.poster_path,
         adult = this.adult,

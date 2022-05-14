@@ -16,7 +16,7 @@ class MoviesByCategoryViewHolder(
 
     private val imagePoster = movieByCategoryModelBinding.posterImageMovieByCategory
 
-    fun bind(moviesByCategoryUiModel: MoviesByCategoryUiModel){
+    fun bind(moviesByCategoryUiModel: MoviesByCategoryUiModel) {
         Glide.with(itemView)
             .load(BuildConfig.GET_IMAGE_URL + moviesByCategoryUiModel.poster_path)
             .fallback(R.drawable.ic_baseline_broken_image_24)
@@ -29,7 +29,10 @@ class MoviesByCategoryViewHolder(
     }
 
     companion object {
-         fun create(parent: ViewGroup, onClick: (MoviesByCategoryUiModel) -> Unit) : MoviesByCategoryViewHolder{
+        fun create(
+            parent: ViewGroup,
+            onClick: (MoviesByCategoryUiModel) -> Unit
+        ): MoviesByCategoryViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             val item = MovieByCategoryModelBinding.inflate(inflater, parent, false)
             return MoviesByCategoryViewHolder(item, onClick)

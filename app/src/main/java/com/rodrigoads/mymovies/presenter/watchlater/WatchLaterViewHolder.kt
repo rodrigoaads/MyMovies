@@ -2,6 +2,7 @@ package com.rodrigoads.mymovies.presenter.watchlater
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rodrigoads.mymovies.BuildConfig
@@ -21,8 +22,15 @@ class WatchLaterViewHolder(
         movieByWatchLaterLayoutBinding.textViewTitleMovieByWatchLater
     private val movieByWatchLaterRemoveIcon =
         movieByWatchLaterLayoutBinding.imageViewRemoveMovieByWatchLater
+    private val topLine =
+        movieByWatchLaterLayoutBinding.viewTopLine
+    private val bottomLine =
+        movieByWatchLaterLayoutBinding.viewBottomLine
 
-    fun bind(watchLaterUiModel: WatchLaterUiModel) {
+    fun bind(watchLaterUiModel: WatchLaterUiModel, position: Int, lastPosition: Boolean = false) {
+        bottomLine.isVisible = !lastPosition
+        topLine.isVisible = position != 0
+
         movieByWatchLaterTitle.text = watchLaterUiModel.title
 
         Glide.with(itemView)

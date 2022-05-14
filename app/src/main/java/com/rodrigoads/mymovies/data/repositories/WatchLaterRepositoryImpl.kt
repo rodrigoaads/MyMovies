@@ -24,9 +24,9 @@ class WatchLaterRepositoryImpl @Inject constructor(
 }
 
 interface WatchLaterRepository {
-    fun getAllWatchLaterMovies() : Flow<List<WatchLaterEntity>>
+    fun getAllWatchLaterMovies(): Flow<List<WatchLaterEntity>>
 
     suspend fun insertWatchLaterMovie(watchLater: WatchLater)
 
-    suspend fun removeWatchLaterMovie(id : Int)
+    suspend fun removeWatchLaterMovie(id: Int)
 }

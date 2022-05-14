@@ -16,21 +16,21 @@ interface TmdbService {
     @GET("movie/popular")
     suspend fun getPopularMovies(
         @Query("page") page: Int
-    ) : RequestNetworkResponse<PopularMoviesNetworkResponse>
+    ): RequestNetworkResponse<PopularMoviesNetworkResponse>
 
     @GET("movie/{movie_id}")
     suspend fun getMovieDetails(
         @Path("movie_id") movieId: Int
-    ) : MovieDetailsNetworkResponse
+    ): MovieDetailsNetworkResponse
 
     @GET("movie/{movie_id}/similar")
     suspend fun getSimilarMovies(
         @Path("movie_id") movieId: Int,
         @Query("page") page: Int
-    ) : RequestNetworkResponse<SimilarMovieNetworkResponse>
+    ): RequestNetworkResponse<SimilarMovieNetworkResponse>
 
     @GET("genre/movie/list")
-    suspend fun getCategories() : MovieCategoriesNetworkResponse
+    suspend fun getCategories(): MovieCategoriesNetworkResponse
 
     @GET("discover/movie")
     suspend fun getMoviesByCategory(
@@ -40,7 +40,7 @@ interface TmdbService {
 
     @GET("search/movie")
     suspend fun getMoviesBySearch(
-        @Query("query") query : String,
+        @Query("query") query: String,
         @Query("page") page: Int
     ): RequestNetworkResponse<MoviesBySearchNetworkResponse>
 

@@ -16,7 +16,7 @@ data class WatchLaterEntity(
     val formattedDate: String?,
 )
 
-fun WatchLaterEntity.toWatchLater() : WatchLater {
+fun WatchLaterEntity.toWatchLater(): WatchLater {
     return WatchLater(
         position = this.position,
         id = this.id,

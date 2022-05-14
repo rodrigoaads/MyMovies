@@ -19,7 +19,7 @@ data class MoviesBySearchNetworkResponse(
     val vote_average: Double?
 )
 
-fun MoviesBySearchNetworkResponse.toMoviesBySearch() : MoviesBySearch {
+fun MoviesBySearchNetworkResponse.toMoviesBySearch(): MoviesBySearch {
     return MoviesBySearch(
         poster_path = this.poster_path,
         adult = this.adult,

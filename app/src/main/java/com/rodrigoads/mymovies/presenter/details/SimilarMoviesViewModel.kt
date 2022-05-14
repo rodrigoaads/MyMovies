@@ -24,13 +24,14 @@ class SimilarMoviesViewModel @Inject constructor(
 
     val similarMovies = MutableLiveData<PagingData<SimilarMoviesUiModel>>()
 
-    fun getSimilarMovies(id: Int){
+    fun getSimilarMovies(id: Int) {
         viewModelScope.launch {
-            getSimilarMoviesUseCase(id, getSimilarMoviesPagingConfig()).cachedIn(viewModelScope).collect {
-                similarMovies.postValue(it.map { similarMovies ->
-                    similarMovies.toSimilarMoviesUiModel()
-                })
-            }
+            getSimilarMoviesUseCase(id, getSimilarMoviesPagingConfig()).cachedIn(viewModelScope)
+                .collect {
+                    similarMovies.postValue(it.map { similarMovies ->
+                        similarMovies.toSimilarMoviesUiModel()
+                    })
+                }
         }
     }
 

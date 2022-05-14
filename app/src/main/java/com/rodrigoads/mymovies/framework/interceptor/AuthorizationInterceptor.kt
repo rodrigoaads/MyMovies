@@ -4,7 +4,7 @@ import okhttp3.Interceptor
 import okhttp3.Response
 
 class AuthorizationInterceptor(
-    private val apiKey : String,
+    private val apiKey: String,
     private val apiToken: String,
     private val responseLanguage: String,
     private val responseRegion: String
@@ -27,7 +27,7 @@ class AuthorizationInterceptor(
         )
     }
 
-    companion object{
+    companion object {
         const val API_KEY = "api_key"
         const val API_TOKEN = "Bearer"
         const val LANGUAGE = "language"

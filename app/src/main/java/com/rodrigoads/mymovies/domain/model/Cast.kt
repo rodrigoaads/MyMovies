@@ -17,7 +17,7 @@ data class Cast(
     val order: Int?
 )
 
-fun Cast.toCastUiModel() : CastUiModel {
+fun Cast.toCastUiModel(): CastUiModel {
     return CastUiModel(
         id = this.id,
         name = this.name,

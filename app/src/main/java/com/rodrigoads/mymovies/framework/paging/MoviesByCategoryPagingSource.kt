@@ -20,11 +20,11 @@ class MoviesByCategoryPagingSource(
             LoadResult.Page(
                 data = request.results.map { it.toMoviesByCategory() },
                 prevKey = null,
-                nextKey = if(page != request.total_pages){
+                nextKey = if (page != request.total_pages) {
                     page + NEXT_PAGE
-                }else null
+                } else null
             )
-        }catch (e: Exception){
+        } catch (e: Exception) {
             LoadResult.Error(e)
         }
     }

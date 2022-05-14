@@ -11,7 +11,7 @@ data class WatchLaterUiModel(
     var formattedDate: String?,
 )
 
-fun WatchLaterUiModel.toWatchLater() : WatchLater {
+fun WatchLaterUiModel.toWatchLater(): WatchLater {
     return WatchLater(
         position = this.position,
         id = this.id,

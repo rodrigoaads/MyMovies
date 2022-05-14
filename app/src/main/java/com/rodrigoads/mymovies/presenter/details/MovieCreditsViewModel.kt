@@ -16,14 +16,14 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieCreditsViewModel @Inject constructor(
     private val getMovieCreditsUseCase: GetMovieCreditsUseCase
-): ViewModel() {
+) : ViewModel() {
 
     val movieCredits = MutableLiveData<ResultUiState<MovieCreditsUiModel>>()
 
-    fun getMovieCredits(id: Int){
+    fun getMovieCredits(id: Int) {
         viewModelScope.launch {
-            getMovieCreditsUseCase.getMovieCredits(id).collect {
-                when(it){
+            getMovieCreditsUseCase(id).collect {
+                when (it) {
                     is ResultStatus.Success -> {
                         movieCredits.postValue(ResultUiState.Success(it.data.toMovieCreditsUiModel()))
                     }

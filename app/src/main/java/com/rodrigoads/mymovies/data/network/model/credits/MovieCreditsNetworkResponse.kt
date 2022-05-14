@@ -8,7 +8,7 @@ data class MovieCreditsNetworkResponse(
     val crew: List<CrewNetworkResponse>
 )
 
-fun MovieCreditsNetworkResponse.toMovieCredits() : MovieCredits {
+fun MovieCreditsNetworkResponse.toMovieCredits(): MovieCredits {
     return MovieCredits(
         id = this.id,
         cast = this.cast.map { it.toCast() },

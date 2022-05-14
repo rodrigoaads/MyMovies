@@ -56,7 +56,7 @@ class PopularMoviesListFragment : Fragment() {
         with(popularMoviesListFragmentBinding.popularMoviesRecyclerView) {
             setHasFixedSize(true)
             adapter = popularMoviesAdapter.withLoadStateFooter(
-                PopularMoviesLoadStateAdapter{
+                PopularMoviesLoadStateAdapter {
                     popularMoviesAdapter.retry()
                 }
             )
@@ -88,7 +88,6 @@ class PopularMoviesListFragment : Fragment() {
             }
         }
     }
-
 
 
     companion object {

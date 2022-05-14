@@ -19,7 +19,7 @@ data class MoviesByCategory(
     val vote_average: Double?
 )
 
-fun MoviesByCategory.toMoviesByCategoryUiModel() : MoviesByCategoryUiModel {
+fun MoviesByCategory.toMoviesByCategoryUiModel(): MoviesByCategoryUiModel {
     return MoviesByCategoryUiModel(
         poster_path = this.poster_path,
         overview = this.overview,

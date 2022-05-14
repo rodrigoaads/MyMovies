@@ -12,10 +12,10 @@ data class MovieDetailsUiModel(
     val vote_average: Double?,
     var formattedRuntime: String?,
     var formattedDate: String?,
-    var watchLater : Boolean = false
+    var watchLater: Boolean = false
 )
 
-fun MovieDetailsUiModel.toWatchLaterUiModel() : WatchLaterUiModel {
+fun MovieDetailsUiModel.toWatchLaterUiModel(): WatchLaterUiModel {
     return WatchLaterUiModel(
         id = this.id,
         title = this.title,

@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class GetSimilarMovies @Inject constructor(
     private val similarMoviesRepository: SimilarMoviesRepository
-): GetSimilarMoviesUseCase {
+) : GetSimilarMoviesUseCase {
     override fun invoke(id: Int, pagingConfig: PagingConfig): Flow<PagingData<SimilarMovies>> {
         return Pager(config = pagingConfig) {
             similarMoviesRepository.getRemoteSimilarMovies(id)
@@ -20,5 +20,5 @@ class GetSimilarMovies @Inject constructor(
 }
 
 interface GetSimilarMoviesUseCase {
-    operator fun invoke(id: Int, pagingConfig: PagingConfig) : Flow<PagingData<SimilarMovies>>
+    operator fun invoke(id: Int, pagingConfig: PagingConfig): Flow<PagingData<SimilarMovies>>
 }

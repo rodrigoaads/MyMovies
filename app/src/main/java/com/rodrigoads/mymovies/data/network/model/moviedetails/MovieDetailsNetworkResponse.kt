@@ -30,7 +30,7 @@ data class MovieDetailsNetworkResponse(
     val vote_count: Int?
 )
 
-fun MovieDetailsNetworkResponse.toMovieDetails() : MovieDetails {
+fun MovieDetailsNetworkResponse.toMovieDetails(): MovieDetails {
     return MovieDetails(
         backdrop_path = this.backdrop_path,
         id = this.id,

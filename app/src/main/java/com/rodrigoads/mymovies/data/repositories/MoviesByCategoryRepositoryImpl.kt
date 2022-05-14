@@ -8,12 +8,12 @@ import javax.inject.Inject
 
 class MoviesByCategoryRepositoryImpl @Inject constructor(
     private val moviesByCategoryDataSource: MoviesByCategoryDataSource
-): MoviesByCategoryRepository {
+) : MoviesByCategoryRepository {
     override fun getRemoteMoviesByCategory(genre: Int): PagingSource<Int, MoviesByCategory> {
         return MoviesByCategoryPagingSource(moviesByCategoryDataSource, genre)
     }
 }
 
 interface MoviesByCategoryRepository {
-    fun getRemoteMoviesByCategory(genre: Int) : PagingSource<Int, MoviesByCategory>
+    fun getRemoteMoviesByCategory(genre: Int): PagingSource<Int, MoviesByCategory>
 }

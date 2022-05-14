@@ -35,7 +35,7 @@ class MovieDetailsFragment : Fragment() {
     private lateinit var icAddWatchList: Drawable
     private lateinit var icRemoveWatchList: Drawable
 
-    private lateinit var movieDetails : MovieDetailsUiModel
+    private lateinit var movieDetails: MovieDetailsUiModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,9 +83,9 @@ class MovieDetailsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         val checkWatchLaterStatus = watchLaterViewModel.checkWatchLaterMovieStatus(args.id)
-        if (movieDetailsViewModel.movieDetails.value is ResultUiState.Success){
-            if (movieDetails.watchLater){
-                if(!checkWatchLaterStatus){
+        if (movieDetailsViewModel.movieDetails.value is ResultUiState.Success) {
+            if (movieDetails.watchLater) {
+                if (!checkWatchLaterStatus) {
                     movieDetailsBinding.includeViewMovieDetails.textViewMovieDetailsAddList
                         .setCompoundDrawablesWithIntrinsicBounds(
                             null,
@@ -106,13 +106,13 @@ class MovieDetailsFragment : Fragment() {
         movieDetailsBinding.includeViewMovieDetails.textViewMovieDetailsTitle.text =
             movieDetails.title
         movieDetailsBinding.includeViewMovieDetails.textViewMovieDetailsReleaseDate.text =
-            movieDetails.formattedDate ?: "Desconhecido"
+            movieDetails.formattedDate ?: getString(R.string.unknown)
         movieDetailsBinding.includeViewMovieDetails.textViewMovieDetailsRuntime.text =
-            movieDetails.formattedRuntime ?: "Desconhecido"
+            movieDetails.formattedRuntime ?: getString(R.string.unknown)
         movieDetailsBinding.includeViewMovieDetails.textViewMovieDetailsVoteAverage.text =
             movieDetails.vote_average.toString()
         movieDetailsBinding.includeViewMovieDetails.textViewMovieDetailsDescription.text =
-            movieDetails.overview ?: "Desconhecido"
+            movieDetails.overview ?: getString(R.string.unknown)
 
         Glide.with(this)
             .load(BuildConfig.GET_IMAGE_URL + movieDetails.poster_path)
@@ -140,19 +140,19 @@ class MovieDetailsFragment : Fragment() {
         if (status) {
             movieDetailsBinding.includeViewMovieDetails.textViewMovieDetailsAddList
                 .setCompoundDrawablesWithIntrinsicBounds(
-                null,
-                icRemoveWatchList,
-                null,
-                null
-            )
+                    null,
+                    icRemoveWatchList,
+                    null,
+                    null
+                )
         } else {
             movieDetailsBinding.includeViewMovieDetails.textViewMovieDetailsAddList
                 .setCompoundDrawablesWithIntrinsicBounds(
-                null,
-                icAddWatchList,
-                null,
-                null
-            )
+                    null,
+                    icAddWatchList,
+                    null,
+                    null
+                )
         }
     }
 

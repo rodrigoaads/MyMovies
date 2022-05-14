@@ -7,7 +7,7 @@ data class MovieGenres(
     val name: String?
 )
 
-fun MovieGenres.toCategoriesUiModel() : CategoriesUiModel {
+fun MovieGenres.toCategoriesUiModel(): CategoriesUiModel {
     return CategoriesUiModel(
         id = this.id,
         name = this.name

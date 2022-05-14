@@ -11,12 +11,12 @@ import com.rodrigoads.mymovies.presenter.details.model.SimilarMoviesUiModel
 
 class SimilarMoviesViewHolder(
     similarMovieItemLayoutBinding: MovieItemLayoutBinding,
-    private val onClickItem : (SimilarMoviesUiModel) -> Unit
+    private val onClickItem: (SimilarMoviesUiModel) -> Unit
 ) : RecyclerView.ViewHolder(similarMovieItemLayoutBinding.root) {
 
     private val similarMoviePosterImage = similarMovieItemLayoutBinding.posterImageMovie
 
-    fun bind(similarMoviesUiModel: SimilarMoviesUiModel){
+    fun bind(similarMoviesUiModel: SimilarMoviesUiModel) {
         Glide.with(itemView)
             .load(BuildConfig.GET_IMAGE_URL + similarMoviesUiModel.poster_path)
             .fallback(R.drawable.ic_baseline_broken_image_24)
@@ -28,8 +28,11 @@ class SimilarMoviesViewHolder(
         }
     }
 
-    companion object{
-        fun create(parent: ViewGroup, onClickItem : (SimilarMoviesUiModel) -> Unit) : SimilarMoviesViewHolder {
+    companion object {
+        fun create(
+            parent: ViewGroup,
+            onClickItem: (SimilarMoviesUiModel) -> Unit
+        ): SimilarMoviesViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             val item = MovieItemLayoutBinding.inflate(inflater, parent, false)
             return SimilarMoviesViewHolder(item, onClickItem)

@@ -14,7 +14,7 @@ class RetrofitMoviesBySearchDataSource @Inject constructor(
         query: String,
         page: Int
     ): RequestNetworkResponse<MoviesBySearchNetworkResponse> {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             tmdbService.getMoviesBySearch(query, page)
         }
     }

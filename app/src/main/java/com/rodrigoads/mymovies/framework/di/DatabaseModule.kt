@@ -25,7 +25,7 @@ object DatabaseModule {
     ).build()
 
     @Provides
-    fun provideWatchLaterDao(db: WatchLaterRoomDatabase) : WatchLaterDao{
+    fun provideWatchLaterDao(db: WatchLaterRoomDatabase): WatchLaterDao {
         return db.watchLaterDao()
     }
 }

@@ -37,16 +37,16 @@ class MovieDetailsViewModel @Inject constructor(
         }
     }
 
-    fun getMovieDetails(id: Int){
+    fun getMovieDetails(id: Int) {
         viewModelScope.launch {
             getMovieDetailsUseCase(id).collectLatest {
-                when(it){
+                when (it) {
                     is ResultStatus.Loading -> {
                         movieDetails.postValue(ResultUiState.Loading)
                     }
                     is ResultStatus.Success -> {
                         watchLaterList.value?.forEach { watchLaterMovie ->
-                            if(watchLaterMovie.id == it.data.id){
+                            if (watchLaterMovie.id == it.data.id) {
                                 it.data.apply {
                                     watchLater = true
                                 }

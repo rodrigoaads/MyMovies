@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.rodrigoads.mymovies.presenter.details.model.SimilarMoviesUiModel
 
 class SimilarMoviesAdapter(
-    private val onClickItem : (SimilarMoviesUiModel) -> Unit
+    private val onClickItem: (SimilarMoviesUiModel) -> Unit
 ) : PagingDataAdapter<SimilarMoviesUiModel, SimilarMoviesViewHolder>(diffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimilarMoviesViewHolder {
         return SimilarMoviesViewHolder.create(parent, onClickItem)
@@ -18,8 +18,8 @@ class SimilarMoviesAdapter(
         }
     }
 
-    companion object{
-        val diffCallback = object : DiffUtil.ItemCallback<SimilarMoviesUiModel>(){
+    companion object {
+        val diffCallback = object : DiffUtil.ItemCallback<SimilarMoviesUiModel>() {
             override fun areItemsTheSame(
                 oldItem: SimilarMoviesUiModel,
                 newItem: SimilarMoviesUiModel

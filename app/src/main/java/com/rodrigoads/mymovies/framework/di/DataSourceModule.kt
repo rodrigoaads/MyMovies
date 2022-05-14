@@ -12,7 +12,7 @@ interface DataSourceModule {
     @Binds
     fun bindPopularMoviesDataSource(
         retrofitPopularMoviesDataSource: RetrofitPopularMoviesDataSource
-    ) : PopularMoviesDataSource
+    ): PopularMoviesDataSource
 
     @Binds
     fun bindMovieDetailsDataSource(
@@ -22,7 +22,7 @@ interface DataSourceModule {
     @Binds
     fun bindSimilarMoviesDataSource(
         retrofitSimilarMoviesDataSource: RetrofitSimilarMoviesDataSource
-    ) : SimilarMoviesDataSource
+    ): SimilarMoviesDataSource
 
     @Binds
     fun bindMovieCategoriesDataSource(

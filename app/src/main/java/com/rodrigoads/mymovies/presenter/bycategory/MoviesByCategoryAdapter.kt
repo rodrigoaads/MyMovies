@@ -8,7 +8,8 @@ import com.rodrigoads.mymovies.presenter.bycategory.model.MoviesByCategoryUiMode
 class MoviesByCategoryAdapter(
     private val onClick: (MoviesByCategoryUiModel) -> Unit
 ) : PagingDataAdapter<MoviesByCategoryUiModel, MoviesByCategoryViewHolder>(
-    diffCallback) {
+    diffCallback
+) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesByCategoryViewHolder {
         return MoviesByCategoryViewHolder.create(parent, onClick)
     }
@@ -19,8 +20,8 @@ class MoviesByCategoryAdapter(
         }
     }
 
-    companion object{
-        val diffCallback = object : DiffUtil.ItemCallback<MoviesByCategoryUiModel>(){
+    companion object {
+        val diffCallback = object : DiffUtil.ItemCallback<MoviesByCategoryUiModel>() {
             override fun areItemsTheSame(
                 oldItem: MoviesByCategoryUiModel,
                 newItem: MoviesByCategoryUiModel

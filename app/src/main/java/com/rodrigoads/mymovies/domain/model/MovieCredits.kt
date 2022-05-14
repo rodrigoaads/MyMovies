@@ -8,7 +8,7 @@ data class MovieCredits(
     val crew: List<Crew>
 )
 
-fun MovieCredits.toMovieCreditsUiModel() : MovieCreditsUiModel {
+fun MovieCredits.toMovieCreditsUiModel(): MovieCreditsUiModel {
     return MovieCreditsUiModel(
         id = this.id,
         cast = this.cast.map { it.toCastUiModel() },

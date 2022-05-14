@@ -16,7 +16,7 @@ class MovieCastViewHolder(
     private val movieCastProfileImage = movieCastItemLayoutBinding.imageViewCast
     private val movieCastActorName = movieCastItemLayoutBinding.textActorName
 
-    fun bind(castUiModel: CastUiModel){
+    fun bind(castUiModel: CastUiModel) {
         movieCastActorName.text = castUiModel.name
         Glide.with(itemView)
             .load(BuildConfig.GET_IMAGE_URL + castUiModel.profile_path)
@@ -26,7 +26,7 @@ class MovieCastViewHolder(
     }
 
     companion object {
-        fun create(parent: ViewGroup) : MovieCastViewHolder {
+        fun create(parent: ViewGroup): MovieCastViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             val item = MovieCastItemLayoutBinding.inflate(inflater, parent, false)
             return MovieCastViewHolder(item)

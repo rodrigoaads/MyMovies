@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule{
+object NetworkModule {
 
     private const val TIMEOUT_SECONDS = 15L
 
@@ -23,7 +23,7 @@ object NetworkModule{
     fun provideRetrofit(
         provideGsonConverterFactory: GsonConverterFactory,
         provideOkHttpClient: OkHttpClient
-    ) : TmdbService{
+    ): TmdbService {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(provideOkHttpClient)
@@ -33,7 +33,7 @@ object NetworkModule{
     }
 
     @Provides
-    fun provideGsonConverterFactory() : GsonConverterFactory {
+    fun provideGsonConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create()
     }
 
@@ -41,7 +41,7 @@ object NetworkModule{
     fun provideOkHttpClient(
         provideAuthorizationInterceptor: AuthorizationInterceptor,
         provideLoggingInterceptor: HttpLoggingInterceptor
-    ) : OkHttpClient {
+    ): OkHttpClient {
         return OkHttpClient().newBuilder()
             .addInterceptor(provideLoggingInterceptor)
             .addInterceptor(provideAuthorizationInterceptor)
@@ -51,7 +51,7 @@ object NetworkModule{
     }
 
     @Provides
-    fun provideAuthorizationInterceptor() : AuthorizationInterceptor {
+    fun provideAuthorizationInterceptor(): AuthorizationInterceptor {
         return AuthorizationInterceptor(
             apiKey = BuildConfig.API_KEY,
             apiToken = BuildConfig.API_TOKEN,
@@ -61,12 +61,12 @@ object NetworkModule{
     }
 
     @Provides
-    fun provideLoggingInterceptor() : HttpLoggingInterceptor {
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
             setLevel(
-                if (BuildConfig.DEBUG){
+                if (BuildConfig.DEBUG) {
                     HttpLoggingInterceptor.Level.BODY
-                }else HttpLoggingInterceptor.Level.NONE
+                } else HttpLoggingInterceptor.Level.NONE
             )
         }
     }

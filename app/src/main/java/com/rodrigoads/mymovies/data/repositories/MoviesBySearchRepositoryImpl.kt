@@ -8,12 +8,12 @@ import javax.inject.Inject
 
 class MoviesBySearchRepositoryImpl @Inject constructor(
     private val moviesBySearchDataSource: MoviesBySearchDataSource
-): MoviesBySearchRepository {
+) : MoviesBySearchRepository {
     override fun getMoviesBySearch(query: String): PagingSource<Int, MoviesBySearch> {
         return MoviesBySearchPagingSource(moviesBySearchDataSource, query)
     }
 }
 
-interface MoviesBySearchRepository{
-    fun getMoviesBySearch(query: String) : PagingSource<Int, MoviesBySearch>
+interface MoviesBySearchRepository {
+    fun getMoviesBySearch(query: String): PagingSource<Int, MoviesBySearch>
 }

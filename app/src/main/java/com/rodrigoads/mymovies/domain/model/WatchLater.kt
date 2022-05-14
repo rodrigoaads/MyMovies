@@ -4,7 +4,7 @@ import com.rodrigoads.mymovies.data.local.entities.WatchLaterEntity
 import com.rodrigoads.mymovies.presenter.watchlater.model.WatchLaterUiModel
 
 data class WatchLater(
-    val position : Int?,
+    val position: Int?,
     val id: Int,
     val title: String?,
     val poster_path: String?,
@@ -12,7 +12,7 @@ data class WatchLater(
     var formattedDate: String?,
 )
 
-fun WatchLater.toWatchLaterEntity() : WatchLaterEntity {
+fun WatchLater.toWatchLaterEntity(): WatchLaterEntity {
     return WatchLaterEntity(
         id = this.id,
         title = this.title,
@@ -22,7 +22,7 @@ fun WatchLater.toWatchLaterEntity() : WatchLaterEntity {
     )
 }
 
-fun WatchLater.toWatchLaterUiModel() : WatchLaterUiModel {
+fun WatchLater.toWatchLaterUiModel(): WatchLaterUiModel {
     return WatchLaterUiModel(
         position = this.position,
         id = this.id,

@@ -11,12 +11,12 @@ class RetrofitPopularMoviesDataSource @Inject constructor(
     private val tmdbService: TmdbService
 ) : PopularMoviesDataSource {
     override suspend fun getPopularMovies(page: Int): RequestNetworkResponse<PopularMoviesNetworkResponse> {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             tmdbService.getPopularMovies(page)
         }
     }
 }
 
 interface PopularMoviesDataSource {
-    suspend fun getPopularMovies(page: Int) : RequestNetworkResponse<PopularMoviesNetworkResponse>
+    suspend fun getPopularMovies(page: Int): RequestNetworkResponse<PopularMoviesNetworkResponse>
 }

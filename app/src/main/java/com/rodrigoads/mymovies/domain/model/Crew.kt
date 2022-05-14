@@ -16,7 +16,7 @@ data class Crew(
     val job: String?
 )
 
-fun Crew.toCrewUiModel() : CrewUiModel {
+fun Crew.toCrewUiModel(): CrewUiModel {
     return CrewUiModel(
         id = this.id,
         name = this.name,

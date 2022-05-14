@@ -5,7 +5,7 @@ import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 
 class SearchMoviesLoadStateAdapter(
-    private val retry : () -> Unit
+    private val retry: () -> Unit
 ) : LoadStateAdapter<SearchMoviesLoadStateViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,

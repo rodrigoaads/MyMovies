@@ -19,7 +19,7 @@ data class SimilarMovies(
     val vote_average: Double?
 )
 
-fun SimilarMovies.toSimilarMoviesUiModel() : SimilarMoviesUiModel{
+fun SimilarMovies.toSimilarMoviesUiModel(): SimilarMoviesUiModel {
     return SimilarMoviesUiModel(
         poster_path = this.poster_path,
         title = this.title,

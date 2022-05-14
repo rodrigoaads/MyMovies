@@ -19,22 +19,22 @@ data class MovieDetails(
     val vote_average: Double?,
     var formattedRuntime: String? = null,
     var formattedDate: String? = null,
-    var watchLater : Boolean = false
-){
+    var watchLater: Boolean = false
+) {
     init {
         this.runtime?.let {
-            formattedRuntime = if(it > HOUR){
+            formattedRuntime = if (it > HOUR) {
                 "${(it / HOUR)}h ${(it % HOUR)}m"
-            }else {
+            } else {
                 "${it}Min"
             }
         }
 
         @Suppress("MagicNumber")
-        formattedDate = release_date?.let{
-            if(it.isNotEmpty()){
+        formattedDate = release_date?.let {
+            if (it.isNotEmpty()) {
                 release_date.substring(0..3)
-            }else null
+            } else null
         }
     }
 
@@ -43,7 +43,7 @@ data class MovieDetails(
     }
 }
 
-fun MovieDetails.toMovieDetailsUiModel() : MovieDetailsUiModel {
+fun MovieDetails.toMovieDetailsUiModel(): MovieDetailsUiModel {
     return MovieDetailsUiModel(
         backdrop_path = this.backdrop_path,
         id = this.id,

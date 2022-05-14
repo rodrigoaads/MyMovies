@@ -14,7 +14,8 @@ class GetWatchLater @Inject constructor(
     private val watchLaterRepository: WatchLaterRepository
 ) : GetWatchLaterUseCase {
     override fun getAllWatchLaterMovies(): Flow<List<WatchLater>> {
-        return watchLaterRepository.getAllWatchLaterMovies().map { list -> list.map { it.toWatchLater() } }
+        return watchLaterRepository.getAllWatchLaterMovies()
+            .map { list -> list.map { it.toWatchLater() } }
     }
 
     override suspend fun insertWatchLaterMovie(watchLaterUiModel: WatchLaterUiModel) {
@@ -27,9 +28,9 @@ class GetWatchLater @Inject constructor(
 }
 
 interface GetWatchLaterUseCase {
-    fun getAllWatchLaterMovies() : Flow<List<WatchLater>>
+    fun getAllWatchLaterMovies(): Flow<List<WatchLater>>
 
     suspend fun insertWatchLaterMovie(watchLaterUiModel: WatchLaterUiModel)
 
-    suspend fun removeWatchLaterMovie(id : Int)
+    suspend fun removeWatchLaterMovie(id: Int)
 }

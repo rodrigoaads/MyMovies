@@ -19,7 +19,7 @@ data class SimilarMovieNetworkResponse(
     val vote_average: Double?
 )
 
-fun SimilarMovieNetworkResponse.toSimilarMovies() : SimilarMovies {
+fun SimilarMovieNetworkResponse.toSimilarMovies(): SimilarMovies {
     return SimilarMovies(
         poster_path = this.poster_path,
         adult = this.adult,

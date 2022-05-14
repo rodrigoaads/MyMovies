@@ -24,8 +24,8 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class SimilarMoviesFragment : Fragment() {
     private lateinit var similarMoviesBinding: FragmentSimilarMoviesBinding
-    private val similarMoviesViewModel : SimilarMoviesViewModel by viewModels()
-    private lateinit var similarMoviesAdapter : SimilarMoviesAdapter
+    private val similarMoviesViewModel: SimilarMoviesViewModel by viewModels()
+    private lateinit var similarMoviesAdapter: SimilarMoviesAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,7 +49,7 @@ class SimilarMoviesFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        if (similarMoviesViewModel.similarMovies.value == null){
+        if (similarMoviesViewModel.similarMovies.value == null) {
             val parent = requireParentFragment().arguments
             parent?.getInt("id")?.let {
                 similarMoviesViewModel.getSimilarMovies(it)
@@ -64,10 +64,10 @@ class SimilarMoviesFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        with(similarMoviesBinding.popularMoviesRecyclerView){
+        with(similarMoviesBinding.popularMoviesRecyclerView) {
             setHasFixedSize(true)
             adapter = similarMoviesAdapter.withLoadStateFooter(
-                SimilarMoviesLoadStateAdapter{
+                SimilarMoviesLoadStateAdapter {
                     similarMoviesAdapter.retry()
                 }
             )
@@ -78,17 +78,18 @@ class SimilarMoviesFragment : Fragment() {
     private fun observeInitialLoadState() {
         lifecycleScope.launch {
             similarMoviesAdapter.loadStateFlow.collectLatest { loadState ->
-                similarMoviesBinding.viewFlipperSimilarMovies.displayedChild = when(loadState.refresh){
-                    is LoadState.Loading -> {
-                        FLIPPER_CHILD_SIMILAR_MOVIES_LOADING_STATE
+                similarMoviesBinding.viewFlipperSimilarMovies.displayedChild =
+                    when (loadState.refresh) {
+                        is LoadState.Loading -> {
+                            FLIPPER_CHILD_SIMILAR_MOVIES_LOADING_STATE
+                        }
+                        is LoadState.NotLoading -> {
+                            FLIPPER_CHILD_SIMILAR_MOVIES
+                        }
+                        is LoadState.Error -> {
+                            FLIPPER_CHILD_SIMILAR_MOVIES_ERROR_STATE
+                        }
                     }
-                    is LoadState.NotLoading -> {
-                        FLIPPER_CHILD_SIMILAR_MOVIES
-                    }
-                    is LoadState.Error -> {
-                        FLIPPER_CHILD_SIMILAR_MOVIES_ERROR_STATE
-                    }
-                }
             }
         }
     }

@@ -7,7 +7,7 @@ data class GenresNetworkResponse(
     val name: String?
 )
 
-fun GenresNetworkResponse.toMovieGenres() : MovieGenres {
+fun GenresNetworkResponse.toMovieGenres(): MovieGenres {
     return MovieGenres(
         id = this.id,
         name = this.name

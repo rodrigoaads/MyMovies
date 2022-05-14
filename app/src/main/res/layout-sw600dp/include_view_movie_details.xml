@@ -127,12 +127,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:drawableStart="@drawable/ic_baseline_star_24"
                 android:fontFamily="@font/nunito_sans_bold"
                 android:gravity="center"
                 android:text="@string/movie_details_vote_average"
                 android:textColor="@color/primary_purple"
-                android:textSize="34sp" />
+                android:textSize="34sp"
+                app:drawableStartCompat="@drawable/ic_baseline_star_24" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

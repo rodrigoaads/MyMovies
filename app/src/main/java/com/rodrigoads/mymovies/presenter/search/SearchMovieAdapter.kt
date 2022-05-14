@@ -18,8 +18,8 @@ class SearchMovieAdapter(
         }
     }
 
-    companion object{
-        val diffCallback = object : DiffUtil.ItemCallback<SearchMovieUiModel>(){
+    companion object {
+        val diffCallback = object : DiffUtil.ItemCallback<SearchMovieUiModel>() {
             override fun areItemsTheSame(
                 oldItem: SearchMovieUiModel,
                 newItem: SearchMovieUiModel

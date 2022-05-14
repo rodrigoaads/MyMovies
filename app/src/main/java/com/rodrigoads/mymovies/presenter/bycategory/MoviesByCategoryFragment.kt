@@ -74,7 +74,7 @@ class MoviesByCategoryFragment : Fragment() {
 
         moviesByCategoryBinding.recyclerViewMoviesByCategory.apply {
             adapter = moviesByCategoryAdapter.withLoadStateFooter(
-                MoviesByCategoryLoadStateAdapter{
+                MoviesByCategoryLoadStateAdapter {
                     moviesByCategoryAdapter.retry()
                 }
             )

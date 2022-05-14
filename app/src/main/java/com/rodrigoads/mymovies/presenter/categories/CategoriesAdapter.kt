@@ -6,7 +6,7 @@ import com.rodrigoads.mymovies.presenter.categories.model.CategoriesUiModel
 
 class CategoriesAdapter(
     private val categoryList: List<CategoriesUiModel>,
-    private val onClick : (CategoriesUiModel) -> Unit
+    private val onClick: (CategoriesUiModel) -> Unit
 ) : RecyclerView.Adapter<CategoriesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
         return CategoriesViewHolder.create(parent, onClick)

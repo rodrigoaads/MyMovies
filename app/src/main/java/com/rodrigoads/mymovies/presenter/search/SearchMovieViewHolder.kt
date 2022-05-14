@@ -12,14 +12,14 @@ import com.rodrigoads.mymovies.presenter.search.model.SearchMovieUiModel
 class SearchMovieViewHolder(
     movieBySearchModelBinding: MovieBySearchModelBinding,
     private val onClick: (SearchMovieUiModel) -> Unit
-): RecyclerView.ViewHolder(movieBySearchModelBinding.root) {
+) : RecyclerView.ViewHolder(movieBySearchModelBinding.root) {
     private val searchMoviePosterImage = movieBySearchModelBinding.imageViewPosterMoviesBySearch
     private val searchMovieTitle = movieBySearchModelBinding.textViewMovieBySearchMovieTitle
     private val searchMovieVoteCount = movieBySearchModelBinding.textViewMovieBySearchVoteAverage
     private val searchMovieReleaseDate = movieBySearchModelBinding.textViewMovieBySearchReleaseDate
     //private val searchMovieFavoriteIcon = movieBySearchModelBinding.imageViewMovieBySearchFavoriteMovie
 
-    fun bind(searchMovieUiModel: SearchMovieUiModel){
+    fun bind(searchMovieUiModel: SearchMovieUiModel) {
         searchMovieTitle.text = searchMovieUiModel.title
         searchMovieVoteCount.text = searchMovieUiModel.vote_average.toString()
         searchMovieReleaseDate.text = searchMovieUiModel.formattedDate
@@ -35,8 +35,11 @@ class SearchMovieViewHolder(
         }
     }
 
-    companion object{
-        fun create(parent: ViewGroup, onClick: (SearchMovieUiModel) -> Unit) : SearchMovieViewHolder {
+    companion object {
+        fun create(
+            parent: ViewGroup,
+            onClick: (SearchMovieUiModel) -> Unit
+        ): SearchMovieViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             val item = MovieBySearchModelBinding.inflate(inflater, parent, false)
             return SearchMovieViewHolder(item, onClick)

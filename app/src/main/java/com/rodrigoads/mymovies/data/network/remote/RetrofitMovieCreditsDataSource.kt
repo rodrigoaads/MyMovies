@@ -11,16 +11,16 @@ import javax.inject.Inject
 
 class RetrofitMovieCreditsDataSource @Inject constructor(
     private val tmdbService: TmdbService
-): MovieCreditsDataSource{
+) : MovieCreditsDataSource {
     @Suppress("TooGenericExceptionCaught")
     override suspend fun getMovieCredits(id: Int): Flow<ResultStatus<MovieCreditsNetworkResponse>> {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             flow {
                 emit(ResultStatus.Loading)
                 try {
                     val request = tmdbService.getMovieCredits(id)
                     emit(ResultStatus.Success(request))
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     emit(ResultStatus.Error(e))
                 }
             }
@@ -29,5 +29,5 @@ class RetrofitMovieCreditsDataSource @Inject constructor(
 }
 
 interface MovieCreditsDataSource {
-    suspend fun getMovieCredits(id: Int) : Flow<ResultStatus<MovieCreditsNetworkResponse>>
+    suspend fun getMovieCredits(id: Int): Flow<ResultStatus<MovieCreditsNetworkResponse>>
 }

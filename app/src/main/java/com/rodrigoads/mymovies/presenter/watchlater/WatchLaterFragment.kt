@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class WatchLaterFragment : Fragment() {
     private lateinit var watchLaterBinding: FragmentWatchLaterBinding
-    private val watchLaterViewModel : WatchLaterViewModel by activityViewModels()
+    private val watchLaterViewModel: WatchLaterViewModel by activityViewModels()
     private lateinit var watchLaterAdapter: WatchLaterAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +35,7 @@ class WatchLaterFragment : Fragment() {
         initWatchLaterAdapter()
 
         watchLaterViewModel.watchLaterList.observe(viewLifecycleOwner, Observer {
+            initWatchLaterAdapter()
             watchLaterAdapter.submitList(it.sortedByDescending { watchLaterMovie ->
                 watchLaterMovie.position
             })
@@ -55,13 +56,13 @@ class WatchLaterFragment : Fragment() {
         }
     }
 
-    private fun getMovieDetails(id : Int){
+    private fun getMovieDetails(id: Int) {
         val action = WatchLaterFragmentDirections
             .actionWatchLaterFragmentToMovieDetailsFragment(id = id)
-            findNavController().navigate(action)
+        findNavController().navigate(action)
     }
 
-    private fun removeWatchLaterMovie(id : Int){
+    private fun removeWatchLaterMovie(id: Int) {
         lifecycleScope.launch {
             watchLaterViewModel.removeWatchLater(id)
         }

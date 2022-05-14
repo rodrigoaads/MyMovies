@@ -19,7 +19,7 @@ data class MoviesByCategoryNetworkResponse(
     val vote_average: Double?
 )
 
-fun MoviesByCategoryNetworkResponse.toMoviesByCategory() : MoviesByCategory{
+fun MoviesByCategoryNetworkResponse.toMoviesByCategory(): MoviesByCategory {
     return MoviesByCategory(
         poster_path = this.poster_path,
         adult = this.adult,

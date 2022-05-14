@@ -10,10 +10,10 @@ import javax.inject.Inject
 
 class GetMovieCategories @Inject constructor(
     private val movieCategoriesRepository: MovieCategoriesRepository
-): GetMovieCategoriesUseCase {
-    override suspend fun getMovieCategories(): Flow<ResultStatus<MovieCategories>> {
+) : GetMovieCategoriesUseCase {
+    override suspend operator fun invoke(): Flow<ResultStatus<MovieCategories>> {
         return movieCategoriesRepository.getRemoteMovieCategories().map {
-            when(it){
+            when (it) {
                 is ResultStatus.Success -> {
                     ResultStatus.Success(it.data.toMovieGenres())
                 }
@@ -30,5 +30,5 @@ class GetMovieCategories @Inject constructor(
 }
 
 interface GetMovieCategoriesUseCase {
-    suspend fun getMovieCategories() : Flow<ResultStatus<MovieCategories>>
+    suspend operator fun invoke(): Flow<ResultStatus<MovieCategories>>
 }

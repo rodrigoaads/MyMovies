@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rodrigoads.mymovies.presenter.watchlater.model.WatchLaterUiModel
 
 class WatchLaterAdapter(
-    private val onClickItem : (Int) -> Unit,
+    private val onClickItem: (Int) -> Unit,
     private val onClickRemoveItem: (Int) -> Unit
 ) : ListAdapter<WatchLaterUiModel, WatchLaterViewHolder>(diffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WatchLaterViewHolder {
@@ -16,12 +16,16 @@ class WatchLaterAdapter(
 
     override fun onBindViewHolder(holder: WatchLaterViewHolder, position: Int) {
         getItem(position)?.let {
-            holder.bind(it)
+            if (position == currentList.lastIndex) {
+                holder.bind(it, position, true)
+            } else {
+                holder.bind(it, position)
+            }
         }
     }
 
-    companion object{
-        private val diffUtil = object : DiffUtil.ItemCallback<WatchLaterUiModel>(){
+    companion object {
+        private val diffUtil = object : DiffUtil.ItemCallback<WatchLaterUiModel>() {
             override fun areItemsTheSame(
                 oldItem: WatchLaterUiModel,
                 newItem: WatchLaterUiModel

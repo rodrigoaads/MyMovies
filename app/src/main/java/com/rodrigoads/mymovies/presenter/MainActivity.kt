@@ -40,11 +40,12 @@ class MainActivity : AppCompatActivity() {
         mainActivityBinding.toolbar.setupWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            val topLevelDestinations = appBarConfiguration.topLevelDestinations.contains(destination.id)
-            if(!topLevelDestinations){
-                if (destination.id == R.id.movieDetailsFragment){
+            val topLevelDestinations =
+                appBarConfiguration.topLevelDestinations.contains(destination.id)
+            if (!topLevelDestinations) {
+                if (destination.id == R.id.movieDetailsFragment) {
                     mainActivityBinding.toolbar.setNavigationIcon(R.drawable.ic_back)
-                }else {
+                } else {
                     mainActivityBinding.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
                 }
             }
@@ -53,34 +54,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         supportActionBar?.title = navController.currentDestination?.label
-
-        /*mainActivityBinding.bottomNav.setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.popular -> {
-                    navController.navigate(R.id.popular)
-                    navController.clearBackStack(R.id.movieDetailsFragment)
-                    true
-                }
-                R.id.search -> {
-                    navController.navigate(R.id.search)
-                    navController.clearBackStack(R.id.movieDetailsFragment)
-                    true
-                }
-                R.id.watch_later -> {
-                    navController.navigate(R.id.watch_later)
-                    navController.clearBackStack(R.id.movieDetailsFragment)
-                    true
-                }
-                R.id.categories -> {
-                    navController.navigate(R.id.categories)
-                    navController.clearBackStack(R.id.categoriesFragment)
-                    true
-                }
-                else -> {
-                    false
-                }
-            }
-        }*/
     }
 
 }

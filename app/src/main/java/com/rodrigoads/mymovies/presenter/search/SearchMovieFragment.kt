@@ -81,9 +81,9 @@ class SearchMovieFragment : Fragment() {
         }
         searchMovieBinding.recyclerViewSearchResult.apply {
             adapter = searchMovieAdapter.withLoadStateFooter(
-                SearchMoviesLoadStateAdapter{
-                searchMovieAdapter.retry()
-            })
+                SearchMoviesLoadStateAdapter {
+                    searchMovieAdapter.retry()
+                })
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
     }

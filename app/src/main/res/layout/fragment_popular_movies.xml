@@ -11,33 +11,11 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
 
-       <ImageView
-           android:id="@+id/image_view_back_bg"
-           android:layout_width="0dp"
-           android:layout_height="0dp"
-           android:scaleType="centerCrop"
-           android:src="@drawable/back_bg"
-           app:layout_constraintBottom_toBottomOf="@+id/fragment_list_popular_movies"
-           app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="parent" />
-
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:fontFamily="@font/nunito_sans_bold"
-           android:text="#1"
-           android:textColor="@color/primary_purple"
-           android:textSize="34sp"
-           app:layout_constraintBottom_toTopOf="@+id/view_flipper_first_popular_movie"
-           app:layout_constraintStart_toStartOf="@+id/view_flipper_first_popular_movie" />
-
        <ViewFlipper
            android:id="@+id/view_flipper_first_popular_movie"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginStart="10dp"
-           android:layout_marginEnd="10dp"
+           android:layout_height="0dp"
+           app:layout_constraintHeight_min="280dp"
            app:layout_constraintBottom_toTopOf="@+id/text_view_popular_movies"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +49,6 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_marginStart="10dp"
-           android:layout_marginBottom="5dp"
            android:fontFamily="@font/nunito_sans_bold"
            android:text="@string/popular_movies"
            android:textColor="@color/primary_purple"
@@ -86,7 +63,7 @@
            android:layout_height="wrap_content"
            app:layout_constraintBottom_toBottomOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintStart_toStartOf="parent"/>
+           app:layout_constraintStart_toStartOf="parent" />
    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

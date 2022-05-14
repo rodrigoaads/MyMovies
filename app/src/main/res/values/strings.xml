@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">MyMovies</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="popular">Popular</string>
     <string name="search">Pesquisar</string>
     <string name="watch_later">Assistir mais tarde</string>
@@ -29,4 +27,7 @@
     <string name="remove_list">Remover da lista</string>
     <string name="actor_name">Nome do ator</string>
     <string name="cast">Elenco</string>
+    <string name="first_indicator">#1</string>
+    <string name="unknown">Desconhecido</string>
+    <string name="details">Detalhes</string>
 </resources>

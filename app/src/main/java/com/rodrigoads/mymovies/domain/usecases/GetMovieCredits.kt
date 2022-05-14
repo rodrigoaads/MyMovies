@@ -11,9 +11,9 @@ import javax.inject.Inject
 class GetMovieCredits @Inject constructor(
     private val getMovieCreditsRepository: MovieCreditsRepository
 ) : GetMovieCreditsUseCase {
-    override suspend fun getMovieCredits(id: Int): Flow<ResultStatus<MovieCredits>> {
+    override suspend operator fun invoke(id: Int): Flow<ResultStatus<MovieCredits>> {
         return getMovieCreditsRepository.getRemoteMovieCredits(id).map { resultStatus ->
-            when(resultStatus){
+            when (resultStatus) {
                 is ResultStatus.Success -> {
                     ResultStatus.Success(data = resultStatus.data.toMovieCredits())
                 }
@@ -29,5 +29,5 @@ class GetMovieCredits @Inject constructor(
 }
 
 interface GetMovieCreditsUseCase {
-    suspend fun getMovieCredits(id: Int) : Flow<ResultStatus<MovieCredits>>
+    suspend operator fun invoke(id: Int): Flow<ResultStatus<MovieCredits>>
 }

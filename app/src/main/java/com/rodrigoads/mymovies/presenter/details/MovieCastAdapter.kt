@@ -18,7 +18,7 @@ class MovieCastAdapter : ListAdapter<CastUiModel, MovieCastViewHolder>(diffCallb
     }
 
     companion object {
-        val diffCallback = object : DiffUtil.ItemCallback<CastUiModel>(){
+        val diffCallback = object : DiffUtil.ItemCallback<CastUiModel>() {
             override fun areItemsTheSame(oldItem: CastUiModel, newItem: CastUiModel): Boolean {
                 return oldItem.id == newItem.id
             }

@@ -16,5 +16,5 @@ class SimilarMoviesRepositoryImpl @Inject constructor(
 }
 
 interface SimilarMoviesRepository {
-    fun getRemoteSimilarMovies(id: Int) : PagingSource<Int, SimilarMovies>
+    fun getRemoteSimilarMovies(id: Int): PagingSource<Int, SimilarMovies>
 }

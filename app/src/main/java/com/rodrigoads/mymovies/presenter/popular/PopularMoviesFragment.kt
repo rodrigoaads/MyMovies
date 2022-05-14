@@ -21,20 +21,21 @@ import kotlin.math.hypot
 
 @AndroidEntryPoint
 class PopularMoviesFragment : Fragment() {
-    private lateinit var popularMoviesBinding : FragmentPopularMoviesBinding
+    private lateinit var popularMoviesBinding: FragmentPopularMoviesBinding
     private val popularMoviesViewModel: PopularMoviesViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        popularMoviesBinding = FragmentPopularMoviesBinding.inflate(layoutInflater, container, false)
+        popularMoviesBinding =
+            FragmentPopularMoviesBinding.inflate(layoutInflater, container, false)
         return popularMoviesBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         popularMoviesViewModel.firstPopularMovie.observe(viewLifecycleOwner, Observer {
-            popularMoviesBinding.viewFlipperFirstPopularMovie.displayedChild = when(it){
+            popularMoviesBinding.viewFlipperFirstPopularMovie.displayedChild = when (it) {
                 is ResultUiState.Loading -> {
                     FLIPPER_CHILD_FIRST_POPULAR_MOVIE_LOADING_STATE
                 }
@@ -53,17 +54,17 @@ class PopularMoviesFragment : Fragment() {
     private fun setFirstPopularMovie(firstPopularMovie: PopularMoviesUiModel?) {
         val movieId = firstPopularMovie?.id ?: 0
         firstPopularMovie?.let {
-            popularMoviesBinding.includeViewFirstPopularMovie.textViewFirstMovieTitle.text = it.title
-            popularMoviesBinding.includeViewFirstPopularMovie.textViewMovieDescription.text = it.overview
+            popularMoviesBinding.includeViewFirstPopularMovie.textViewFirstMovieTitle.text =
+                it.title
         }
 
         Glide.with(this)
-            .load(BuildConfig.GET_IMAGE_URL + firstPopularMovie?.poster_path)
+            .load(BuildConfig.GET_IMAGE_URL + firstPopularMovie?.backdrop_path)
             .fallback(R.drawable.ic_baseline_broken_image_24)
-            .error(R.drawable.ic_baseline_question_mark_24)
-            .into(popularMoviesBinding.includeViewFirstPopularMovie.imageViewFirstPopularMoviePoster)
+            .error(R.drawable.ic_baseline_image_not_supported_24)
+            .into(popularMoviesBinding.includeViewFirstPopularMovie.imageViewFirstPopularMovieBackdrop)
 
-        popularMoviesBinding.includeViewFirstPopularMovie.firstPopularMovieView.setOnClickListener {
+        popularMoviesBinding.includeViewFirstPopularMovie.textViewFirstMovieDetails.setOnClickListener {
             val action = PopularMoviesFragmentDirections
                 .actionPopularMoviesFragmentToMovieDetailsFragment(id = movieId)
             findNavController().navigate(action)

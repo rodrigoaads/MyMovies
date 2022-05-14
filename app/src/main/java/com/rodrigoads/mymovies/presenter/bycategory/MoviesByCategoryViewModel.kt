@@ -22,9 +22,11 @@ class MoviesByCategoryViewModel @Inject constructor(
 
     val moviesByCategory = MutableLiveData<PagingData<MoviesByCategoryUiModel>>()
 
-    fun getMoviesByCategory(genre: Int){
+    fun getMoviesByCategory(genre: Int) {
         viewModelScope.launch {
-            getMoviesByCategoryUseCase(genre, getMoviesByCategoryPagingConfig()).cachedIn(viewModelScope).collect {
+            getMoviesByCategoryUseCase(genre, getMoviesByCategoryPagingConfig()).cachedIn(
+                viewModelScope
+            ).collect {
                 moviesByCategory.postValue(it.map { moviesByCategory ->
                     moviesByCategory.toMoviesByCategoryUiModel()
                 })

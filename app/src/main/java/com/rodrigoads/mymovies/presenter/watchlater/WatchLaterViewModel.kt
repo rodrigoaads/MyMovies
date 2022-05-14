@@ -34,14 +34,14 @@ class WatchLaterViewModel @Inject constructor(
         }
     }
 
-    suspend fun removeWatchLater(id: Int){
+    suspend fun removeWatchLater(id: Int) {
         getWatchLaterUseCase.removeWatchLaterMovie(id)
     }
 
-    fun checkWatchLaterMovieStatus(id : Int) : Boolean {
+    fun checkWatchLaterMovieStatus(id: Int): Boolean {
         var isWatchLaterMovie = false
         watchLaterList.value?.forEach {
-            if(it.id == id){
+            if (it.id == id) {
                 isWatchLaterMovie = true
             }
         }

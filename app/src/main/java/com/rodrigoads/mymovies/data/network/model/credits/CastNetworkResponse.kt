@@ -17,7 +17,7 @@ data class CastNetworkResponse(
     val order: Int?
 )
 
-fun CastNetworkResponse.toCast() : Cast {
+fun CastNetworkResponse.toCast(): Cast {
     return Cast(
         adult = this.adult,
         gender = this.gender,

@@ -9,22 +9,22 @@ import kotlin.Exception
 
 class MoviesBySearchPagingSource(
     private val moviesBySearchDataSource: MoviesBySearchDataSource,
-    private val query : String
+    private val query: String
 ) : PagingSource<Int, MoviesBySearch>() {
     @Suppress("TooGenericExceptionCaught")
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MoviesBySearch> {
         return try {
-           val page = params.key ?: 1
-           val request = moviesBySearchDataSource.getMoviesBySearch(query = query, page = page)
+            val page = params.key ?: 1
+            val request = moviesBySearchDataSource.getMoviesBySearch(query = query, page = page)
 
             LoadResult.Page(
                 data = request.results.map { it.toMoviesBySearch() },
                 prevKey = null,
-                nextKey = if (page < request.total_pages){
+                nextKey = if (page < request.total_pages) {
                     page + NEXT_PAGE
-                }else null
+                } else null
             )
-        }catch (e: Exception){
+        } catch (e: Exception) {
             LoadResult.Error(e)
         }
     }
@@ -36,7 +36,7 @@ class MoviesBySearchPagingSource(
         }
     }
 
-    companion object{
+    companion object {
         const val NEXT_PAGE = 1
     }
 }

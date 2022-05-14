@@ -16,7 +16,7 @@ data class CrewNetworkResponse(
     val job: String?
 )
 
-fun CrewNetworkResponse.toCrew() : Crew {
+fun CrewNetworkResponse.toCrew(): Crew {
     return Crew(
         adult = this.adult,
         gender = this.gender,

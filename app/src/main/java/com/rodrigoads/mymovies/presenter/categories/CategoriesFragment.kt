@@ -37,7 +37,7 @@ class CategoriesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         categoriesViewModel.categories.observe(viewLifecycleOwner, Observer {
-            categoriesBinding.viewFlipperCategories.displayedChild = when(it){
+            categoriesBinding.viewFlipperCategories.displayedChild = when (it) {
                 is ResultUiState.Loading -> {
                     FLIPPER_CHILD_CATEGORIES_LOADING_STATE
                 }
@@ -56,19 +56,19 @@ class CategoriesFragment : Fragment() {
     }
 
     private fun initAdapter(categoryList: List<CategoriesUiModel>) {
-        categoriesAdapter = CategoriesAdapter(categoryList){
+        categoriesAdapter = CategoriesAdapter(categoryList) {
             val action = CategoriesFragmentDirections
                 .actionCategoriesFragmentToMoviesByCategoryFragment(id = it.id, name = it.name)
             findNavController().navigate(action)
         }
 
-        with(categoriesBinding.recyclerViewCategories){
+        with(categoriesBinding.recyclerViewCategories) {
             adapter = categoriesAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
     }
 
-    companion object{
+    companion object {
         const val FLIPPER_CHILD_CATEGORIES_LOADING_STATE = 0
         const val FLIPPER_CHILD_CATEGORIES = 1
         const val FLIPPER_CHILD_CATEGORIES_ERROR_STATE = 2

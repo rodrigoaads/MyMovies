@@ -10,16 +10,19 @@ import javax.inject.Inject
 
 class GetMoviesByCategory @Inject constructor(
     private val moviesByCategoriesRepository: MoviesByCategoryRepository
-): GetMoviesByCategoryUseCase {
-    override fun invoke(genre: Int, pagingConfig: PagingConfig): Flow<PagingData<MoviesByCategory>> {
+) : GetMoviesByCategoryUseCase {
+    override fun invoke(
+        genre: Int,
+        pagingConfig: PagingConfig
+    ): Flow<PagingData<MoviesByCategory>> {
         return Pager(
             config = pagingConfig,
-        ){
+        ) {
             moviesByCategoriesRepository.getRemoteMoviesByCategory(genre)
         }.flow
     }
 }
 
 interface GetMoviesByCategoryUseCase {
-    operator fun invoke(genre: Int, pagingConfig: PagingConfig) : Flow<PagingData<MoviesByCategory>>
+    operator fun invoke(genre: Int, pagingConfig: PagingConfig): Flow<PagingData<MoviesByCategory>>
 }

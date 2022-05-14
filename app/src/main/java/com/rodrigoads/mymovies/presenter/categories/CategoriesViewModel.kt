@@ -25,8 +25,8 @@ class CategoriesViewModel @Inject constructor(
 
     fun getCategories() {
         viewModelScope.launch {
-            getMovieCategoriesUseCase.getMovieCategories().collectLatest {
-                 when(it){
+            getMovieCategoriesUseCase().collectLatest {
+                when (it) {
                     is ResultStatus.Loading -> {
                         categories.postValue(ResultUiState.Loading)
                     }

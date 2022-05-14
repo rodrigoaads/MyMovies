@@ -8,12 +8,12 @@ import javax.inject.Inject
 
 class MovieCreditsRepositoryImpl @Inject constructor(
     private val movieCreditsDataSource: MovieCreditsDataSource
-): MovieCreditsRepository {
+) : MovieCreditsRepository {
     override suspend fun getRemoteMovieCredits(id: Int): Flow<ResultStatus<MovieCreditsNetworkResponse>> {
         return movieCreditsDataSource.getMovieCredits(id)
     }
 }
 
 interface MovieCreditsRepository {
-    suspend fun getRemoteMovieCredits(id: Int) : Flow<ResultStatus<MovieCreditsNetworkResponse>>
+    suspend fun getRemoteMovieCredits(id: Int): Flow<ResultStatus<MovieCreditsNetworkResponse>>
 }

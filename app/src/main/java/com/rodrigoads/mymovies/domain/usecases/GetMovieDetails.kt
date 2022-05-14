@@ -10,10 +10,10 @@ import javax.inject.Inject
 
 class GetMovieDetails @Inject constructor(
     private val movieDetailsRepository: MovieDetailsRepository
-): GetMovieDetailsUseCase {
-    override suspend fun invoke(id: Int) : Flow<ResultStatus<MovieDetails>> {
+) : GetMovieDetailsUseCase {
+    override suspend fun invoke(id: Int): Flow<ResultStatus<MovieDetails>> {
         return movieDetailsRepository.getRemoteMovieDetails(id).map {
-            when(it) {
+            when (it) {
                 is ResultStatus.Success -> {
                     ResultStatus.Success(it.data.toMovieDetails())
                 }
@@ -30,5 +30,5 @@ class GetMovieDetails @Inject constructor(
 }
 
 interface GetMovieDetailsUseCase {
-    suspend operator fun invoke(id: Int) : Flow<ResultStatus<MovieDetails>>
+    suspend operator fun invoke(id: Int): Flow<ResultStatus<MovieDetails>>
 }
