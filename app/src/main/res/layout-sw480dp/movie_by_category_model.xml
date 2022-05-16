@@ -8,8 +8,8 @@
     android:layout_margin="3dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="100dp"
-        android:layout_height="160dp">
+        android:layout_width="120dp"
+        android:layout_height="190dp">
 
         <ImageView
             android:id="@+id/poster_image_movie_by_category"
