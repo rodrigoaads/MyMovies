@@ -1,6 +1,6 @@
 # MyMovies (Android App) :film_projector:
 ## Project description (First version)
-<p align="center">Application consuming the [TMDB](https://developers.themoviedb.org/3/getting-started/introduction)</p>
+<p align="center">Application consuming the TMDB Api</p>
 
 ## Clean Architecture and MVVM.
 
